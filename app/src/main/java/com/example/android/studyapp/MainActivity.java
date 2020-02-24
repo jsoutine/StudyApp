@@ -31,4 +31,4 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Help.class);
         startActivity (i);
     }
-} // Detta är en test
+} // Detta är en test av Tobzki
