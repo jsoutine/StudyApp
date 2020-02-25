@@ -6,13 +6,11 @@ import android.os.Bundle;
 
 import com.example.android.studyapp.R;
 
-public class CreateCards extends AppCompatActivity {
-
-
+public class cardMaker extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_cards);
+        setContentView(R.layout.activity_card_maker);
     }
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Tools.ToolsMenu"></activity>
+        <activity android:name=".Tools.MemoryCards.cardMaker"></activity>
+        <activity android:name=".Tools.ToolsMenu" />
         <activity android:name=".Help" />
         <activity android:name=".Events.ViewEvents" />
         <activity android:name=".Events.CreateEvent" />
