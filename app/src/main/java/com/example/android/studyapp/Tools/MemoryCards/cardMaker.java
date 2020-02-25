@@ -14,11 +14,6 @@ import com.example.android.studyapp.R;
 
 public class cardMaker extends AppCompatActivity {
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
