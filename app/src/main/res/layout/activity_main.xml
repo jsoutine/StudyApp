@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.987" />
 
     <TextView
         android:id="@+id/textView"
@@ -81,4 +81,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCalendar"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="212dp"
+        android:onClick="calendarClick"
+        android:text="CALENDAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
