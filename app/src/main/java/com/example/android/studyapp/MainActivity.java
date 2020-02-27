@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Help.class);
         startActivity (i);
     }
+    public void calendarClick (View view) {
+        Intent i = new Intent(this, Calendar.class);
+        startActivity (i);
+    }
 
     //test
 }
