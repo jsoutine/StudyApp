@@ -35,6 +35,16 @@ public class ToolsMenu extends AppCompatActivity {
         startActivity (i);
     }
 
+    public void brownNoiseClick (View view) {
+        Intent i = new Intent(this, BrownNoise.class);
+        startActivity (i);
+    }
+
+    public void toDoListClick (View view) {
+        Intent i = new Intent(this, ToDoList.class);
+        startActivity (i);
+    }
+
     public void mainClick (View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity (i);

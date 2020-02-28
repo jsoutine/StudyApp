@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
+        <activity android:name=".Tools.ToDoList"></activity>
+        <activity android:name=".Tools.BrownNoise" />
         <activity android:name=".Calendar" />
         <activity android:name=".Tools.MemoryCards.cardMaker" />
         <activity android:name=".Tools.ToolsMenu" />
