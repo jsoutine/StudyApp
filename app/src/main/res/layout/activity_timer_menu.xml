@@ -7,7 +7,7 @@
     tools:context=".Tools.Timer.TimerMenu">
 
     <Button
-        android:id="@+id/createButton4"
+        android:id="@+id/btnStartPauseTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
@@ -20,23 +20,47 @@
         android:text="START TIMER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/timeTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00::00::00"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <TextView
+        android:id="@+id/txtViewQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="\nKnowledge is power. Information is\nliberating. Education is the premise of progess, in every society, in every family.\n\n- Kofi Annan"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.781" />
 
     <Button
-        android:id="@+id/createButton5"
-        android:layout_width="0dp"
+        android:id="@+id/btnResetTimer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="500dp"
-        android:onClick="toolsClick"
-        android:text="BACK"
+        android:text="Reset Timer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
