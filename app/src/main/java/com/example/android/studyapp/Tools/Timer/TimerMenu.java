@@ -1,13 +1,16 @@
 package com.example.android.studyapp.Tools.Timer;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.studyapp.Help;
 import com.example.android.studyapp.R;
@@ -19,6 +22,7 @@ public class TimerMenu extends AppCompatActivity {
     private static final long START_TIME_IN_MILLIS = 600000;
 
     private TextView mTextViewCountDown;
+    private TextView quoteText;
     private Button mButtonStartPause;
     private Button mButtonReset;
 
@@ -32,9 +36,10 @@ public class TimerMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_timer_menu);
 
         mTextViewCountDown = findViewById(R.id.timeTxtView);
+        quoteText = findViewById(R.id.txtViewQuote);
 
         mButtonStartPause = findViewById(R.id.btnStartPauseTime);
         mButtonReset = findViewById(R.id.btnResetTimer);
@@ -53,11 +58,11 @@ public class TimerMenu extends AppCompatActivity {
         mButtonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetTimer();
+                alertDialog();
+
             }
         });
 
-        updateCountDownText();
     }
 
     private void startTimer() {
@@ -88,10 +93,14 @@ public class TimerMenu extends AppCompatActivity {
     }
 
     private void resetTimer() {
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
-        updateCountDownText();
-        updateButtons();
-    }
+
+            mTimeLeftInMillis = START_TIME_IN_MILLIS;
+            updateCountDownText();
+            updateButtons();
+
+        }
+
+
 
     private void updateCountDownText() {
         int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
@@ -145,6 +154,34 @@ public class TimerMenu extends AppCompatActivity {
             mTimeLeftInMillis = mEndTime - System.currentTimeMillis();
             startTimer();
         }
+    }
+
+    private void alertDialog () {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Do you really wanna quit? Look at yourself in the mirror first.");
+        alertDialog.setTitle("Digital Box");
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(), "Yes is clicked", Toast.LENGTH_LONG).show();
+                resetTimer();
+                //quoteText.setText("Knowledge is power. Information is\nliberating. Education is the premise\nof progress, in every society, in every\nfamily.\n\n- Kofi Annan");
+
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(), "Cancel is clicked. Good moral!", Toast.LENGTH_LONG);
+                quoteText.setText("Good moral character is the first essential in a man.\n\n- George Washington");
+            }
+
+        });
+
+        AlertDialog alertDialog1 = alertDialog.create();
+        alertDialog.show();
     }
 }
 
