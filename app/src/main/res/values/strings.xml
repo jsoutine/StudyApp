@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Study App</string>
     //Memory card Strings
-    <string name="deckTitle">Title of deck, ex. \"Capital Cities\"</string>
-    <string name="deckSubject">Subject of deck, ex. \"Geography\".</string>
+    <string name="deckTitleHint">Title of deck, ex. \"Capital Cities\"</string>
+    <string name="deckSubjectHint">Subject of deck, ex. \"Geography\".</string>
     <string name="deckCreator">Create a New Deck of Memory Cards.</string>
     <string name="deckButton">GENERATE DECK</string>
+    <string name="addQuestion">Add a question</string>
+    <string name="addAnswer">Write the answer</string>
+    <string name="createCard">CREATE CARD</string>
+
 </resources>

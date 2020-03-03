@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import com.example.android.studyapp.R;
 
-public class CreateCards extends AppCompatActivity {
+public class CreateDeck extends AppCompatActivity {
 
     public void generateDeck(View view) {
 
@@ -20,7 +20,7 @@ public class CreateCards extends AppCompatActivity {
         String title = titleText.getText().toString();
         String subject = subjectText.getText().toString();
 
-        Intent i = new Intent(this, cardMaker.class);
+        Intent i = new Intent(this, CardMaker.class);
         i.putExtra("title", title);
         i.putExtra("subject", subject);
         startActivity (i);
