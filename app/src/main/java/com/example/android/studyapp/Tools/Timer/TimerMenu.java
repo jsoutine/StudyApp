@@ -23,12 +23,16 @@ public class TimerMenu extends AppCompatActivity {
 
     private TextView mTextViewCountDown;
     private TextView quoteText;
+    private TextView resetTimerTxt;
+    private TextView cancelTimerTxt;
     private Button mButtonStartPause;
     private Button mButtonReset;
 
     private CountDownTimer mCountDownTimer;
 
     private boolean mTimerRunning;
+    private int resetCounter = 0;
+    private int cancelCounter = 0;
 
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private long mEndTime;
@@ -40,6 +44,8 @@ public class TimerMenu extends AppCompatActivity {
 
         mTextViewCountDown = findViewById(R.id.timeTxtView);
         quoteText = findViewById(R.id.txtViewQuote);
+        resetTimerTxt = findViewById(R.id.resetTxtViewCounter);
+        cancelTimerTxt = findViewById(R.id.cancelTxtView);
 
         mButtonStartPause = findViewById(R.id.btnStartPauseTime);
         mButtonReset = findViewById(R.id.btnResetTimer);
@@ -165,6 +171,8 @@ public class TimerMenu extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), "Yes is clicked", Toast.LENGTH_LONG).show();
+                resetCounter++;
+                resetTimerTxt.setText("Number of resets: " + resetCounter);
                 resetTimer();
                 //quoteText.setText("Knowledge is power. Information is\nliberating. Education is the premise\nof progress, in every society, in every\nfamily.\n\n- Kofi Annan");
 
@@ -176,6 +184,8 @@ public class TimerMenu extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getApplicationContext(), "Cancel is clicked. Good moral!", Toast.LENGTH_LONG);
                 quoteText.setText("Good moral character is the first essential in a man.\n\n- George Washington");
+                cancelCounter++;
+                cancelTimerTxt.setText("Number of cancels: " + cancelCounter);
             }
 
         });
