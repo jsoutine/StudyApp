@@ -12,8 +12,11 @@ import com.example.android.studyapp.Tools.ToolsMenu;
 
 public class MainActivity extends AppCompatActivity {
 
+    RandomQuoteGenerator randomQuoteGenerator = new RandomQuoteGenerator();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
