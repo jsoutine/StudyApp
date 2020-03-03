@@ -167,14 +167,13 @@ public class TimerMenu extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Yes is clicked", Toast.LENGTH_LONG).show();
                 resetTimer();
                 //quoteText.setText("Knowledge is power. Information is\nliberating. Education is the premise\nof progress, in every society, in every\nfamily.\n\n- Kofi Annan");
-
             }
         });
 
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getApplicationContext(), "Cancel is clicked. Good moral!", Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), "Cancel is clicked. Good moral!", Toast.LENGTH_LONG).show();
                 quoteText.setText("Good moral character is the first essential in a man.\n\n- George Washington");
             }
 

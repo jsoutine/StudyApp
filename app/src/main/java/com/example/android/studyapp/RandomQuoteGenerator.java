@@ -5,11 +5,11 @@ import java.util.Random;
 public class RandomQuoteGenerator {
 
 
-    public static int quoteGenerator () {
-
-        String [] quotesList = new String[5];
+    public static String quoteGenerator () {
 
         Random random = new Random();
+        String[] quotesList = new String[6];
+        int randomNumber = random.nextInt(quotesList.length);
 
         quotesList [0] = "Any fool can know. The point is to understand.\n\n- Albert Einstein";
         quotesList [1] = "I did then what i know how to do. Now that i know better, i do better.\n\n-Maya Agelou";
@@ -18,7 +18,6 @@ public class RandomQuoteGenerator {
         quotesList [4] = "The secret of success is to do the common things uncommonly well.\n\n- John D.Rockefeller";
         quotesList [5] = "I find the harder i work, the more luck i seem to have.\n\n- Thomas Jefferson";
 
-        int randomNumber = random.nextInt(quotesList.length);
-        return randomNumber;
+        return quotesList[randomNumber];
     }
 }

@@ -12,7 +12,7 @@
         <activity android:name=".Tools.ToDoList"></activity>
         <activity android:name=".Tools.BrownNoise" />
         <activity android:name=".Calendar" />
-        <activity android:name=".Tools.MemoryCards.cardMaker" />
+        <activity android:name=".Tools.MemoryCards.CardMaker" />
         <activity android:name=".Tools.ToolsMenu" />
         <activity android:name=".Help" />
         <activity android:name=".Events.ViewEvents" />
@@ -22,7 +22,7 @@
         <activity android:name=".Tools.StudyTips.StudyTips" />
         <activity android:name=".Tools.MemoryCards.MyCards" />
         <activity android:name=".Tools.MemoryCards.CardMenu" />
-        <activity android:name=".Tools.MemoryCards.CreateCards" />
+        <activity android:name=".Tools.MemoryCards.CreateDeck" />
         <activity android:name=".Events.EventsMenu" />
         <activity android:name=".MainActivity">
             <intent-filter>
