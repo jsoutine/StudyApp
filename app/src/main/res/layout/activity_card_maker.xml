@@ -36,7 +36,8 @@
         android:ems="10"
         android:hint="@string/addQuestion"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="99dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="276dp" />
 
     <EditText
@@ -46,14 +47,20 @@
         android:ems="10"
         android:hint="@string/addAnswer"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="448dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionEditText" />
 
     <Button
         android:id="@+id/button2"
+        style="@style/JuliusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/createCard"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="563dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,7 @@
     <string name="addAnswer">Write the answer</string>
     <string name="createCard">CREATE CARD</string>
 
+    <string name="StudyApp">BeautifulButton</string>
+    <string name="back">BACK</string>
+
 </resources>
