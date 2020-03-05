@@ -6,12 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".Tools.MemoryCards.MyCards">
 
-    <TextView
-        android:id="@+id/textView6"
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="383dp"
+        android:layout_height="281dp"
+        android:layout_marginStart="-2000dp"
+        android:layout_marginLeft="-2000dp"
+        android:layout_marginTop="258dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="192dp"
+        android:onClick="flip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.999"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/blank" />
+
+    <Button
+        android:id="@+id/cardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MY CARDS"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="328dp" />
+        android:onClick="slide"
+        android:text="NEW CARD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardImage" />
+
+    <TextView
+        android:id="@+id/cardText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-2000dp"
+        android:layout_marginLeft="-2000dp"
+        android:text="Testing"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/cardImage"
+        app:layout_constraintEnd_toEndOf="@+id/cardImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardImage" />
+
+    <TextView
+        android:id="@+id/cardText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-2000dp"
+        android:layout_marginLeft="-2000dp"
+        android:text="Trying "
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/cardImage"
+        app:layout_constraintEnd_toEndOf="@+id/cardImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardImage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
