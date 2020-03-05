@@ -117,7 +117,6 @@ public class MyCards extends AppCompatActivity {
 
     public void correctClick(View view) {
 
-
         ImageView cardImage = (ImageView) findViewById(R.id.cardImage);
         TextView cardText = (TextView) findViewById(R.id.cardText);
         TextView cardText2 = (TextView) findViewById(R.id.cardText2);
@@ -127,6 +126,7 @@ public class MyCards extends AppCompatActivity {
             if (flipped) {
 
                 onScreen = false;
+                flipped = false;
                 correct++;
                 total++;
 
@@ -144,10 +144,11 @@ public class MyCards extends AppCompatActivity {
     }
 
     public void wrongClick(View view) {
-        correctClick(view);
-        if (flipped) {
+
+        if (onScreen && flipped) {
             correct--;
+            correctClick(view);
+            results();
         }
-        results();
     }
 }
