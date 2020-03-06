@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import com.example.android.studyapp.Events.EventsMenu;
+import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,12 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
     public void eventClick (View view) {
-        Intent i = new Intent(this, EventsMenu.class);
+        Intent i = new Intent(this, ViewCourses.class);
         startActivity (i);
     }
 
@@ -41,6 +38,4 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Calendar.class);
         startActivity (i);
     }
-
-    //test
 }

@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/btnPlay"
+        style="@style/JuliusButton"
         android:layout_width="117dp"
         android:layout_height="74dp"
         android:text="PLAY"
@@ -20,6 +21,7 @@
 
     <Button
         android:id="@+id/btnPause"
+        style="@style/JuliusButton"
         android:layout_width="117dp"
         android:layout_height="74dp"
         android:text="PAUSE"

@@ -150,7 +150,7 @@ public class MyCards extends AppCompatActivity {
                 results();
 
             } else {
-                Toast toast = Toast.makeText(this, "Press the card to see the answer", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Press the card to see the answer", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
                 toast.show();
             }
