@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.android.studyapp.Events.EventsMenu;
+import com.example.android.studyapp.Events.ViewEvents;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void eventClick (View view) {
-        Intent i = new Intent(this, EventsMenu.class);
+        Intent i = new Intent(this, ViewEvents.class);
         startActivity (i);
     }
 

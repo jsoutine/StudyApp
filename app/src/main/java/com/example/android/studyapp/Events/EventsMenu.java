@@ -17,18 +17,4 @@ public class EventsMenu extends AppCompatActivity {
         setContentView(R.layout.activity_events_menu);
     }
 
-    public void createClick (View view) {
-        Intent i = new Intent(this, CreateEvent.class);
-        startActivity (i);
-    }
-
-    public void viewClick (View view) {
-        Intent i = new Intent(this, ViewEvents.class);
-        startActivity (i);
-    }
-
-    public void mainClick (View view) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity (i);
-    }
 }

@@ -6,60 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".Tools.MemoryCards.CardMenu">
 
-    <Button
-        android:id="@+id/createButton3"
-        style="@style/JuliusButton"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="500dp"
-        android:onClick="createCardClick"
-        android:text="CREATE CARDS"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="128dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/viewButton6"
-        style="@style/JuliusButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="500dp"
-        android:onClick="myClick"
-        android:text="MY CARDS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/viewButton6"
+            style="@style/JuliusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="myClick"
+            android:text="MY CARDS" />
 
-    <Button
-        android:id="@+id/viewButton7"
-        style="@style/JuliusButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="460dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="500dp"
-        android:onClick="backClick"
-        android:text="BACK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/createButton3"
+            style="@style/JuliusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="createCardClick"
+            android:text="CREATE CARDS" />
+
+        <Button
+            android:id="@+id/viewButton7"
+            style="@style/JuliusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="backClick"
+            android:text="BACK" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/quoteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewButton7" />
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="581dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
