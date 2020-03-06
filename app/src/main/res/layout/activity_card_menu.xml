@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
         android:layout_marginEnd="128dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,12 +44,12 @@
             android:layout_marginBottom="32dp"
             android:onClick="backClick"
             android:text="BACK" />
+
+        <TextView
+            android:id="@+id/quoteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/quoteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="581dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

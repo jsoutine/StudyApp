@@ -4,12 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Events.EventsMenu">
+    tools:context=".Events.AddCourse">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="128dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView4"
@@ -18,9 +27,10 @@
             android:text="Name" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/courseNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:ems="10"
             android:hint="name of course"
             android:inputType="textPersonName" />
@@ -32,9 +42,10 @@
             android:text="Subject" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/subjectNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:ems="10"
             android:hint="subject of course"
             android:inputType="textPersonName" />
@@ -46,11 +57,12 @@
             android:text="Date Start" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/startDateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:ems="10"
-            android:hint="Enter the starting date"
+            android:hint="enter the starting date"
             android:inputType="date" />
 
         <TextView
@@ -60,12 +72,37 @@
             android:text="Date End" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/endDateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:ems="10"
             android:hint="enter the ending date"
             android:inputType="date" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/addButton"
+        style="@style/JuliusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="ADD COURSE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD NEW COURSE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,13 +8,12 @@
 
     <Button
         android:id="@+id/btnStartPauseTime"
+        style="@style/JuliusButton"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="260dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:layout_marginBottom="500dp"
         android:onClick="timerStartClick"
         android:text="START TIMER"
@@ -54,6 +53,7 @@
 
     <Button
         android:id="@+id/btnResetTimer"
+        style="@style/JuliusButton"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:text="Reset Timer"
