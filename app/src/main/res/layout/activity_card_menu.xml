@@ -8,13 +8,12 @@
 
     <Button
         android:id="@+id/createButton3"
+        style="@style/JuliusButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="260dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:layout_marginBottom="500dp"
         android:onClick="createCardClick"
         android:text="CREATE CARDS"
@@ -25,13 +24,12 @@
 
     <Button
         android:id="@+id/viewButton6"
+        style="@style/JuliusButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="360dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:layout_marginBottom="500dp"
         android:onClick="myClick"
         android:text="MY CARDS"
@@ -42,13 +40,12 @@
 
     <Button
         android:id="@+id/viewButton7"
+        style="@style/JuliusButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="460dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:layout_marginBottom="500dp"
         android:onClick="backClick"
         android:text="BACK"

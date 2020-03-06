@@ -25,10 +25,11 @@
 
     <Button
         android:id="@+id/cardButton"
+        style="@style/JuliusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="slide"
-        android:text="NEW CARD"
+        android:text="NEXT CARD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -81,6 +82,7 @@
 
         <ImageButton
             android:id="@+id/wrongButton"
+            style="@android:style/Widget.Holo.ImageButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginLeft="32dp"
@@ -91,7 +93,7 @@
 
         <ImageButton
             android:id="@+id/correctButton"
-            style="@style/Widget.AppCompat.ImageButton"
+            style="@android:style/Widget.Holo.ImageButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginLeft="64dp"
