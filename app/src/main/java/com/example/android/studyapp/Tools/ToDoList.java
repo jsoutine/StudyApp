@@ -52,8 +52,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
                 itemET.setText("");
 
                 FileHelper.writeData(items, this);
-                Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -62,8 +61,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         items.remove(position);
         adapter.notifyDataSetChanged();
-        Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(this, "Task deleted", Toast.LENGTH_SHORT).show();
 
     }
 }
