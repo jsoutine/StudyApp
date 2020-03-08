@@ -2,6 +2,7 @@ package com.example.android.studyapp.Tools.MemoryCards;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -31,6 +32,16 @@ public class MyCards extends AppCompatActivity {
         results();
     }
 
+    public void playSwoosh(View view){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.swoosh);
+        mediaPlayer.start();
+    }
+
+    public void playSwirl(View view){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.swirl );
+        mediaPlayer.start();
+    }
+
     public void resetCard() {
 
         flipped = false;
@@ -49,7 +60,6 @@ public class MyCards extends AppCompatActivity {
 
         cardText.setX(-2000);
         cardText.setY(300);
-
         cardText2.setY(300);
 
         cardImage.animate().rotation(-1800).setDuration(0);
@@ -81,6 +91,7 @@ public class MyCards extends AppCompatActivity {
             cardText.setText(question);
             cardImage.animate().translationXBy(2050).setDuration(500);
             cardText.animate().translationXBy(2300).setDuration(500);
+            playSwoosh(view);
         }
     }
 
@@ -101,6 +112,7 @@ public class MyCards extends AppCompatActivity {
 
             cardText.animate().alpha(0).setDuration(1000);
             cardText2.animate().alpha(1).setDuration(1000);
+            playSwirl(view);
 
         } else {
 
@@ -112,6 +124,7 @@ public class MyCards extends AppCompatActivity {
 
             cardText.animate().alpha(1).setDuration(1000);
             cardText2.animate().alpha(0).setDuration(1000);
+            playSwirl(view);
         }
     }
 
@@ -133,10 +146,11 @@ public class MyCards extends AppCompatActivity {
                 cardImage.animate().translationYBy(-2000).setDuration(500);
                 cardText.animate().translationYBy(-2000).setDuration(500);
                 cardText2.animate().translationYBy(-2000).setDuration(500);
+                playSwoosh(view);
                 results();
 
             } else {
-                Toast toast = Toast.makeText(this, "Press the card to see the answer", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Press the card to see the answer", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
                 toast.show();
             }
@@ -144,11 +158,10 @@ public class MyCards extends AppCompatActivity {
     }
 
     public void wrongClick(View view) {
-
-        if (onScreen && flipped) {
+        if (onScreen && flipped){
             correct--;
-            correctClick(view);
             results();
         }
+        correctClick(view);
     }
 }
