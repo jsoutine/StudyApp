@@ -17,6 +17,8 @@ public class RandomQuoteGenerator {
         quotesList [3] = "Knowledge is love and light and vision.\n\n- Helen Keller";
         quotesList [4] = "The secret of success is to do the common things uncommonly well.\n\n- John D.Rockefeller";
         quotesList [5] = "I find the harder i work, the more luck i seem to have.\n\n- Thomas Jefferson";
+        quotesList [6] = "To acquire knowledge, one must study; but to acquire wisdom, one must observe.\n\n- Marilyn vos Savant";
+        quotesList [7] = "Every beginner possesses a great potential to be an expert in his or her chosen field.\n\n- Lailah Gifty Akita";
 
         return quotesList[randomNumber];
     }

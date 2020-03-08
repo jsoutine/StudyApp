@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Calendar">
 
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="394dp"
@@ -14,6 +15,42 @@
         android:layout_marginBottom="311dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/textInput"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Select a date and write your task here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Button
+        android:id="@+id/saveTextButton"
+        android:layout_width="109dp"
+        android:layout_height="39dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="108dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="40dp"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInput"
+        android:onClick="backClick"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

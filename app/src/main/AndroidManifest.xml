@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
+
         <activity android:name=".Events.CourseWindow"></activity>
         <activity android:name=".Tools.ToDoList" />
         <activity android:name=".Tools.BrownNoise" />
