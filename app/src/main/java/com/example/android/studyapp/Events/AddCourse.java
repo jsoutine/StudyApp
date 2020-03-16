@@ -54,6 +54,8 @@ public class AddCourse extends AppCompatActivity {
                 ViewCourses.myCourses.set(courseId, String.valueOf(charSequence));
                 ViewCourses.arrayAdapter.notifyDataSetChanged();
 
+                sharedPreferences = getApplicationContext().getSharedPreferences
+                        ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
                 HashSet<String> set = new HashSet<>(ViewCourses.myCourses);
                 sharedPreferences.edit().putStringSet("myCourses", set).apply();
             }
