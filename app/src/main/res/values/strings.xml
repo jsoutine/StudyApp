@@ -11,5 +11,6 @@
 
     <string name="StudyApp">BeautifulButton</string>
     <string name="back">BACK</string>
+    <string name="save_note">SAVE NOTE</string>
 
 </resources>
