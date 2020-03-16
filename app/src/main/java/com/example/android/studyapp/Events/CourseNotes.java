@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,17 +21,31 @@ import android.widget.TextView;
 import com.example.android.studyapp.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class CourseNotes extends AppCompatActivity {
 
     static ArrayList<String> notes = new ArrayList<String>();
     static ArrayAdapter arrayAdapter;
+    SharedPreferences sharedPreferences;
     String courseName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_window);
+
+        sharedPreferences = getApplicationContext().getSharedPreferences
+                ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+
+        HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("notes", null);
+
+        if (set == null) {
+            notes.add("Example Note");
+        } else {
+            notes = new ArrayList<>(set);
+        }
 
         courseInfo();
 
@@ -66,6 +82,12 @@ public class CourseNotes extends AppCompatActivity {
                         })
                         .setNegativeButton("No", null)
                         .show();
+
+                sharedPreferences = getApplicationContext().getSharedPreferences
+                        ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+                HashSet<String> set = new HashSet<>(notes);
+                sharedPreferences.edit().putStringSet("notes", set).apply();
+
                 return true;
             }
         });

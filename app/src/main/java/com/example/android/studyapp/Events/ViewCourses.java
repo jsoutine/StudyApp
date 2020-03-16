@@ -77,7 +77,7 @@ public class ViewCourses extends AppCompatActivity {
 
                                 sharedPreferences = getApplicationContext().getSharedPreferences
                                         ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
-                                HashSet<String> set = new HashSet<>(ViewCourses.myCourses);
+                                HashSet<String> set = new HashSet<>(myCourses);
                                 sharedPreferences.edit().putStringSet("myCourses", set).apply();
                             }
                         })
