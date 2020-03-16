@@ -20,6 +20,7 @@ import java.util.HashSet;
 public class NoteEditor extends AppCompatActivity {
 
     int noteId;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class NoteEditor extends AppCompatActivity {
                 CourseNotes.notes.set(noteId, String.valueOf(charSequence));
                 CourseNotes.arrayAdapter.notifyDataSetChanged();
 
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences
+                sharedPreferences = getApplicationContext().getSharedPreferences
                         ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
                 HashSet<String> set = new HashSet<>(CourseNotes.notes);
                 sharedPreferences.edit().putStringSet("notes", set).apply();

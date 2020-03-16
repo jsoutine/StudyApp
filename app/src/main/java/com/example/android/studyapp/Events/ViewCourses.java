@@ -3,9 +3,13 @@ package com.example.android.studyapp.Events;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,34 +18,34 @@ import android.widget.ListView;
 import com.example.android.studyapp.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ViewCourses extends AppCompatActivity {
 
+    int courseId;
     static ArrayList<String> myCourses = new ArrayList<String>();
     static ArrayAdapter<String> arrayAdapter;
-
-
-
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_events);
 
+        sharedPreferences = getApplicationContext().getSharedPreferences
+                ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+
+        HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("myCourses", null);
+
+        if (set == null) {
+            myCourses.add("Example Course");
+        } else {
+            myCourses = new ArrayList<>(set);
+        }
+
         final ListView eventListView = findViewById(R.id.eventListView);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, myCourses);
-
-        myCourses.add("Maths");
-        myCourses.add("Computer Networks");
-        myCourses.add("Android");
-        myCourses.add("Java 101");
-        myCourses.add("Horse Taming");
-        myCourses.add("Psychology Introduction");
-        myCourses.add("Fundamental Philosophy");
-        myCourses.add("Greek Verbs and their influence on Roman mythology");
-        myCourses.add("International Relations");
-        myCourses.add("Spycraft 201");
 
         eventListView.setAdapter(arrayAdapter);
 
@@ -70,6 +74,11 @@ public class ViewCourses extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 myCourses.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
+
+                                sharedPreferences = getApplicationContext().getSharedPreferences
+                                        ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+                                HashSet<String> set = new HashSet<>(ViewCourses.myCourses);
+                                sharedPreferences.edit().putStringSet("myCourses", set).apply();
                             }
                         })
                         .setNegativeButton("No", null)
@@ -77,6 +86,7 @@ public class ViewCourses extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     public void addCourseClick (View view) {
