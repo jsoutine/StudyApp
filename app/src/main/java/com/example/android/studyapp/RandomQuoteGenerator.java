@@ -8,7 +8,7 @@ public class RandomQuoteGenerator {
     public static String quoteGenerator () {
 
         Random random = new Random();
-        String[] quotesList = new String[6];
+        String[] quotesList = new String[8];
         int randomNumber = random.nextInt(quotesList.length);
 
         quotesList [0] = "Any fool can know. The point is to understand.\n\n- Albert Einstein";

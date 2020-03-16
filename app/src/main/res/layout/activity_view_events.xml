@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Events.ViewCourses">
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Delete courses by long pressing on desired course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCourseButton"
+        app:layout_constraintVertical_bias="0.058" />
+
     <ListView
         android:id="@+id/eventListView"
         style="@android:style/Widget.DeviceDefault.ExpandableListView"
