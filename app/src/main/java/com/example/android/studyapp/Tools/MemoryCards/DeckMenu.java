@@ -52,7 +52,7 @@ public class DeckMenu extends AppCompatActivity {
         deckListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String courseId = (String) deckListView.getItemAtPosition(i);
+                String deckId = (String) deckListView.getItemAtPosition(i);
                 Intent intent = new Intent(getApplicationContext(), MyCards.class);
                 intent.putExtra("deckId", deckId);
                 startActivity(intent);

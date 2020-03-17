@@ -19,7 +19,6 @@
         <activity android:name=".Tools.ToolsMenu" />
         <activity android:name=".Help" />
         <activity android:name=".Events.ViewCourses" />
-        <activity android:name=".Events.CreateEvent" />
         <activity android:name=".Tools.Timer.TimerMenu" />
         <activity android:name=".Tools.Timer.Timer" />
         <activity android:name=".Tools.StudyTips.StudyTips" />
