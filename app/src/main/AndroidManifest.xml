@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Events.NoteEditor"></activity>
+        <activity android:name=".Tools.MemoryCards.DeckMenu"></activity>
+        <activity android:name=".Events.NoteEditor" />
         <activity android:name=".Events.CourseNotes" />
         <activity android:name=".Tools.ToDoList" />
         <activity android:name=".Tools.BrownNoise" />

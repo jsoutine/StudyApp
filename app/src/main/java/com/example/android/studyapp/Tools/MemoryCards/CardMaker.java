@@ -20,7 +20,7 @@ public class CardMaker extends AppCompatActivity {
     String subject;
     String question;
     String answer;
-    List<Card> deck = new ArrayList<Card>();
+    static ArrayList<Card> deck = new ArrayList<Card>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

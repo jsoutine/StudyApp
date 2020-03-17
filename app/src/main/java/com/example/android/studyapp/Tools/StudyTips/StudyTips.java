@@ -49,6 +49,5 @@ public class StudyTips extends AppCompatActivity {
         tipsList[9] = "Eat healthy.\n\n- Your body will feel better and you will be more alert.";
 
         return tipsList [randomTip];
-
     }
 }

@@ -63,6 +63,5 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
         adapter.notifyDataSetChanged();
         FileHelper.writeData(items, this);
         Toast.makeText(this, "Task deleted", Toast.LENGTH_SHORT).show();
-
     }
 }

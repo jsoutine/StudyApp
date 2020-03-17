@@ -16,11 +16,12 @@ import com.example.android.studyapp.R;
 
 public class MyCards extends AppCompatActivity {
 
+    int i;
     boolean onScreen = false;
     boolean flipped = false;
     int correct = 0;
     int total = 0;
-    String question = "Hur långt är ett snöre?";
+    String question = "CardMaker.deck.get(i).toString()";
     String answer = "Fem meter";
 
     @Override

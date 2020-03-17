@@ -1,4 +1,4 @@
-package com.example.android.studyapp.Events;
+package com.example.android.studyapp.Tools.MemoryCards;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,77 +8,77 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.android.studyapp.Events.CourseNotes;
+import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class ViewCourses extends AppCompatActivity {
+public class DeckMenu extends AppCompatActivity {
 
-    int courseId;
-    static ArrayList<String> myCourses = new ArrayList<String>();
+    int deckId;
+    static ArrayList<String> myDecks = new ArrayList<String>();
     static ArrayAdapter<String> arrayAdapter;
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_events);
+        setContentView(R.layout.activity_deck_menu);
 
         sharedPreferences = getApplicationContext().getSharedPreferences
-                ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+                ("com.example.android.Tools.MemoryCards", Context.MODE_PRIVATE);
 
-        HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("myCourses", null);
+        HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("myDecks", null);
 
         if (set == null) {
-            myCourses.add("Example Course");
+            myDecks.add("Example Deck");
         } else {
-            myCourses = new ArrayList<>(set);
+            myDecks = new ArrayList<>(set);
         }
 
-        final ListView eventListView = findViewById(R.id.eventListView);
+        final ListView deckListView = findViewById(R.id.deckListView);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, myCourses);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, myDecks);
 
-        eventListView.setAdapter(arrayAdapter);
+        deckListView.setAdapter(arrayAdapter);
 
-        eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        deckListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String courseId = (String) eventListView.getItemAtPosition(i);
-                Intent intent = new Intent(getApplicationContext(), CourseNotes.class);
-                intent.putExtra("courseId", courseId);
+                String courseId = (String) deckListView.getItemAtPosition(i);
+                Intent intent = new Intent(getApplicationContext(), MyCards.class);
+                intent.putExtra("deckId", deckId);
                 startActivity(intent);
             }
         });
 
-        eventListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        deckListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 final int itemToDelete = i;
 
-                new AlertDialog.Builder(ViewCourses.this)
+                new AlertDialog.Builder(DeckMenu.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
-                        .setMessage("Do you want to delete this course?")
+                        .setMessage("Do you want to delete this deck?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                myCourses.remove(itemToDelete);
+                                myDecks.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
 
                                 sharedPreferences = getApplicationContext().getSharedPreferences
                                         ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
-                                HashSet<String> set = new HashSet<>(myCourses);
-                                sharedPreferences.edit().putStringSet("myCourses", set).apply();
+                                HashSet<String> set = new HashSet<>(myDecks);
+                                sharedPreferences.edit().putStringSet("myDecks", set).apply();
                             }
                         })
                         .setNegativeButton("No", null)
@@ -86,11 +86,10 @@ public class ViewCourses extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 
-    public void addCourseClick(View view) {
-        Intent i = new Intent(this, AddCourse.class);
-        startActivity(i);
+    public void createCardClick (View view) {
+        Intent i = new Intent(this, CreateDeck.class);
+        startActivity (i);
     }
 }
