@@ -32,20 +32,23 @@
 
     <Button
         android:id="@+id/saveTextButton"
-        android:layout_width="109dp"
+        android:layout_width="89dp"
         android:layout_height="39dp"
+        style="@style/JuliusButton"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
+
     <Button
         android:id="@+id/button4"
-        android:layout_width="108dp"
-        android:layout_height="49dp"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
         android:layout_marginStart="304dp"
         android:layout_marginTop="40dp"
+        style="@style/JuliusButton"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
