@@ -58,6 +58,15 @@
             android:onClick="addCardClick"
             android:text="@string/createCard" />
 
+        <Button
+            android:id="@+id/doneButton"
+            style="@style/JuliusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:onClick="doneDeckButton"
+            android:text="DECK COMPLETE" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
