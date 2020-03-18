@@ -24,7 +24,9 @@ public class DeckMenu extends AppCompatActivity {
 
     int deckId;
     static ArrayList<String> myDecks = new ArrayList<String>();
+    static ArrayList<Card> cardDeck = new ArrayList<Card>();
     static ArrayAdapter<String> arrayAdapter;
+    static ArrayAdapter<Card> arrayAdapter2;
     SharedPreferences sharedPreferences;
 
     @Override

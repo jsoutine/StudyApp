@@ -16,13 +16,13 @@ import com.example.android.studyapp.R;
 
 public class MyCards extends AppCompatActivity {
 
-    int i;
+    int i = 0;
     boolean onScreen = false;
     boolean flipped = false;
     int correct = 0;
     int total = 0;
-    String question = "CardMaker.deck.get(i).toString()";
-    String answer = "Fem meter";
+    String question;
+    String answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,27 @@ public class MyCards extends AppCompatActivity {
         results();
     }
 
-    public void playSwoosh(View view){
+    public void cycleDeck() {
+        try {
+            question = DeckMenu.cardDeck.get(i).getQuestion();
+            answer = DeckMenu.cardDeck.get(i).getAnswer();
+            i++;
+        } catch (IndexOutOfBoundsException e) {
+            Toast toast = Toast.makeText(this, "Congratulations, you guessed " + correct + " of " + total +" answers correctly!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+            finish();
+        }
+    }
+
+
+    public void playSwoosh(View view) {
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.swoosh);
         mediaPlayer.start();
     }
 
-    public void playSwirl(View view){
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.swirl );
+    public void playSwirl(View view) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.swirl);
         mediaPlayer.start();
     }
 
@@ -59,7 +73,7 @@ public class MyCards extends AppCompatActivity {
         cardImage.setY(0);
         cardImage.setX(-2000);
 
-        cardText.setX(-2000);
+        cardText.setX(-1800);
         cardText.setY(300);
         cardText2.setY(300);
 
@@ -83,6 +97,8 @@ public class MyCards extends AppCompatActivity {
         ImageView cardImage = (ImageView) findViewById(R.id.cardImage);
         TextView cardText = (TextView) findViewById(R.id.cardText);
         TextView cardText2 = (TextView) findViewById(R.id.cardText2);
+
+        cycleDeck();
 
 
         if (!onScreen) {
@@ -159,7 +175,7 @@ public class MyCards extends AppCompatActivity {
     }
 
     public void wrongClick(View view) {
-        if (onScreen && flipped){
+        if (onScreen && flipped) {
             correct--;
             results();
         }
