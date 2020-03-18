@@ -12,5 +12,9 @@
     <string name="StudyApp">BeautifulButton</string>
     <string name="back">BACK</string>
     <string name="save_note">SAVE NOTE</string>
+    <string name="course_name">Course Name</string>
+    <string name="create_new_deck">CREATE NEW DECK</string>
+    <string name="choose_your_deck">Choose your deck</string>
+    <string name="delete_decks_by_long_pressing_on_desired_deck">Delete decks by long pressing on desired deck</string>
 
 </resources>

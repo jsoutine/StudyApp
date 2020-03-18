@@ -78,15 +78,15 @@ public class CourseNotes extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 notes.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
+
+                                sharedPreferences = getApplicationContext().getSharedPreferences
+                                        ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
+                                HashSet<String> set = new HashSet<>(notes);
+                                sharedPreferences.edit().putStringSet("notes", set).apply();
                             }
                         })
                         .setNegativeButton("No", null)
                         .show();
-
-                sharedPreferences = getApplicationContext().getSharedPreferences
-                        ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
-                HashSet<String> set = new HashSet<>(notes);
-                sharedPreferences.edit().putStringSet("notes", set).apply();
 
                 return true;
             }
@@ -124,7 +124,7 @@ public class CourseNotes extends AppCompatActivity {
         return false;
     }
 
-    public void addNote(View view){
+    public void addNote(View view) {
         Intent intent = new Intent(getApplicationContext(), NoteEditor.class);
         startActivity(intent);
     }

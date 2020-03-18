@@ -31,7 +31,7 @@ public class CardMenu extends AppCompatActivity {
     }
 
     public void myClick (View view) {
-        Intent i = new Intent(this, MyCards.class);
+        Intent i = new Intent(this, DeckMenu.class);
         startActivity (i);
     }
 

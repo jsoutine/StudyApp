@@ -15,6 +15,10 @@ public class Card {
         this. answer = answer;
     }
 
+    public Card() {
+
+    }
+
     public String getTitle() {
         return title;
     }
