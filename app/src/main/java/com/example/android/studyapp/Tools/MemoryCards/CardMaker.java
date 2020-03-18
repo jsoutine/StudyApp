@@ -31,9 +31,7 @@ public class CardMaker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_maker);
-
-
-
+        
         Intent i = getIntent();
         title = i.getExtras().getString("title");
         subject = i.getExtras().getString("subject");
