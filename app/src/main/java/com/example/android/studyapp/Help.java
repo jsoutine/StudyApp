@@ -16,7 +16,6 @@ import java.net.URISyntaxException;
 
 public class Help extends AppCompatActivity {
 
-    Activity startSwish = new Activity();
     Context swishContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,11 @@ public class Help extends AppCompatActivity {
         tipTheTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                openSwishWithToken(swishContext, "c28a4061470f4af48973bd2a4642b4fa", "merchant%253A%252F%252F");
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("se.bankgirot.swish");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);//null pointer check in case package name was not found
+                }
+              //  openSwishWithToken(swishContext, "c28a4061470f4af48973bd2a4642b4fa", "merchant%253A%252F%252F");
             }
         });
     }
