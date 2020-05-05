@@ -95,6 +95,8 @@ public class Help extends AppCompatActivity {
             context.startActivity(intent);
         } catch (Exception e){
             // Unable to start Swish
+
+            // HEJ HÅKAN HEHEHEHEHE
             return false;
         }
 
