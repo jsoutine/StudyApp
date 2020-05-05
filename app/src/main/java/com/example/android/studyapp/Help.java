@@ -96,7 +96,7 @@ public class Help extends AppCompatActivity {
         } catch (Exception e){
             // Unable to start Swish
 
-            // HEJ HÅKAN HEHEHEHEHE
+            // defgssdfdfsdfasdfsdfs
             return false;
         }
 
