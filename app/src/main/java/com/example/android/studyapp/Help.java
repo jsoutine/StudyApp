@@ -42,7 +42,7 @@ public class Help extends AppCompatActivity {
         tipTheTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSwish(startSwish, "To", "dfas", 1);
+                startSwish(startSwish, "swish://paymentrequest?token=", "&callbackurl=", 0);
             }
         });
     }
