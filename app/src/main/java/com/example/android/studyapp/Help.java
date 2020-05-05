@@ -95,7 +95,7 @@ public class Help extends AppCompatActivity {
             context.startActivity(intent);
         } catch (Exception e){
             // vet ej varför jag skriver detta
-            // adsadsadsads
+            // ehjqewqwe
             return false;
         }
 
