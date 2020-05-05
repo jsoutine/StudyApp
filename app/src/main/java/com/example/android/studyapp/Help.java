@@ -48,6 +48,7 @@ public class Help extends AppCompatActivity {
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
               //  openSwishWithToken(swishContext, "c28a4061470f4af48973bd2a4642b4fa", "merchant%253A%252F%252F");
+                // HEHJEJEJEJEJE
             }
         });
     }
