@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,7 @@ import java.net.URISyntaxException;
 public class Help extends AppCompatActivity {
 
     Activity startSwish = new Activity();
-
+    Context swishContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,48 +44,63 @@ public class Help extends AppCompatActivity {
         tipTheTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSwish(startSwish, "To", "dfas", 1);
+
+                openSwishWithToken(swishContext, "c28a4061470f4af48973bd2a4642b4fa", "merchant%253A%252F%252F");
             }
         });
     }
 
 
-    public void dialContactPhone (final String phoneNumber) {
+    public void dialContactPhone(final String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:0733719883"));
         startActivity(intent);
     }
 
-    public void emailUs () {
-        try{
-            Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "tobiasgustaverik@icloud.com"));
+    public void emailUs() {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "tobiasgustaverik@icloud.com"));
             intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
             intent.putExtra(Intent.EXTRA_TEXT, "Text here");
             startActivity(intent);
-        }catch(ActivityNotFoundException e){
+        } catch (ActivityNotFoundException e) {
 
         }
     }
 
-    public static boolean startSwish (Activity activity, String token, String callBackUrl, int requestCode) {
 
-        if (token == null || token.length() == 0 || callBackUrl == null || callBackUrl.length() == 0 || activity == null) {
+    public static boolean openSwishWithToken(Context context, String token, String callBackUrl) {
+        if ( token == null
+                || token.length() == 0
+                || callBackUrl == null
+                || callBackUrl.length() == 0
+                || context == null) {
             return false;
         }
 
-        Uri scheme = Uri.parse("swish://paymentrequest?token=" + token + "&callbackUrl=" + callBackUrl);
-        Intent intent = new Intent(Intent.ACTION_VIEW, scheme);
+        // Construct the uri
+        // Note that appendQueryParameter takes care of uri encoding
+        // the parameters
+        Uri url = new Uri.Builder()
+                .scheme("swish")
+                .authority("paymentrequest")
+                .appendQueryParameter("token", token)
+                .appendQueryParameter("callbackurl", callBackUrl)
+                .build();
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, url);
         intent.setPackage("se.bankgirot.swish");
 
-        boolean started = true;
-
         try {
-            activity.startActivityForResult(intent, requestCode);
-
-        } catch (Exception x) {
-            System.out.println(x);
-            started = false;
+            context.startActivity(intent);
+        } catch (Exception e){
+            // vet ej varför jag skriver detta
+            // ehjqewqwe
+            return false;
         }
-        return started;
+
+        return true;
     }
+
+
 }
