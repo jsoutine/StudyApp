@@ -45,7 +45,8 @@ public class Help extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                openSwishWithToken(swishContext, "c28a4061470f4af48973bd2a4642b4fa", "merchant%253A%252F%252F");
+                launchSwish();
+
             }
         });
     }
@@ -69,38 +70,12 @@ public class Help extends AppCompatActivity {
     }
 
 
-    public static boolean openSwishWithToken(Context context, String token, String callBackUrl) {
-        if ( token == null
-                || token.length() == 0
-                || callBackUrl == null
-                || callBackUrl.length() == 0
-                || context == null) {
-            return false;
+    public void launchSwish () {
+
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("se.bankgirot.swish");
+        if (launchIntent != null) {
+            startActivity(launchIntent);//null pointer check in case package name was not found
         }
-
-        // Construct the uri
-        // Note that appendQueryParameter takes care of uri encoding
-        // the parameters
-        Uri url = new Uri.Builder()
-                .scheme("swish")
-                .authority("paymentrequest")
-                .appendQueryParameter("token", token)
-                .appendQueryParameter("callbackurl", callBackUrl)
-                .build();
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, url);
-        intent.setPackage("se.bankgirot.swish");
-
-        try {
-            context.startActivity(intent);
-        } catch (Exception e){
-            // vet ej varför jag skriver detta
-            // ehjqewqwe
-            return false;
-        }
-
-        return true;
     }
-
 
 }
