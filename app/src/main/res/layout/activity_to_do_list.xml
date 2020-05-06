@@ -6,27 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Tools.ToDoList"
     android:orientation="vertical">
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:orientation="horizontal">
+        android:layout_marginBottom="12dp">
+
         <EditText
             android:id="@+id/item_edit_text"
-            android:hint="Write task here, hold to delete"
             android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:hint="Write task here, hold to delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/add_btn"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/add_btn"
             style="@style/JuliusButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add" />
-    </LinearLayout>
+            android:layout_width="94dp"
+            android:layout_height="43dp"
+            android:text="Add"
+            app:layout_constraintBaseline_toBaselineOf="@+id/item_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_edit_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/add_calend_btn"
+        style="@style/JuliusButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to calendar" />
+
     <ListView
         android:id="@+id/items_list"
         android:layout_marginBottom="12dp"

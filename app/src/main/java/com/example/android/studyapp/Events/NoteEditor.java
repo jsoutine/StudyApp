@@ -12,10 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.android.studyapp.Calendar;
 import com.example.android.studyapp.MainActivity;
 import com.example.android.studyapp.R;
 
 import java.util.HashSet;
+
+import static com.example.android.studyapp.Events.CourseNotes.notes;
 
 public class NoteEditor extends AppCompatActivity {
 
@@ -30,14 +33,22 @@ public class NoteEditor extends AppCompatActivity {
         EditText editText = findViewById(R.id.editText);
         Button saveButton = findViewById(R.id.saveButton);
 
+        Button saveToCalendarBtn = findViewById(R.id.saveToCalBtn);
+        saveToCalendarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveToCalendar();
+            }
+        });
+
         Intent intent = getIntent();
         noteId = intent.getIntExtra("noteId", -1);
 
         if (noteId != -1) {
-            editText.setText(CourseNotes.notes.get(noteId));
+            editText.setText(notes.get(noteId));
         } else {
-            CourseNotes.notes.add("");
-            noteId = CourseNotes.notes.size() - 1;
+            notes.add("");
+            noteId = notes.size() - 1;
         }
 
         editText.addTextChangedListener(new TextWatcher() {
@@ -48,12 +59,12 @@ public class NoteEditor extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                CourseNotes.notes.set(noteId, String.valueOf(charSequence));
+                notes.set(noteId, String.valueOf(charSequence));
                 CourseNotes.arrayAdapter.notifyDataSetChanged();
 
                 sharedPreferences = getApplicationContext().getSharedPreferences
                         ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
-                HashSet<String> set = new HashSet<>(CourseNotes.notes);
+                HashSet<String> set = new HashSet<>(notes);
                 sharedPreferences.edit().putStringSet("notes", set).apply();
             }
 
@@ -66,6 +77,13 @@ public class NoteEditor extends AppCompatActivity {
 
     public void saveButtonPressed(View view) {
         finish();
+    }
+
+    public void saveToCalendar() {
+        finish();
+        Intent i = new Intent(this, Calendar.class);
+        i.putExtra("EVENT_MESSAGE", notes.get(noteId));
+        startActivity(i);
     }
 }
 

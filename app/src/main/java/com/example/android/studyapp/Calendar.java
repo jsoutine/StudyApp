@@ -53,7 +53,22 @@ public class Calendar extends AppCompatActivity {
 
         readInfo();
 
-        final EditText textInput = findViewById(R.id.textInput);
+        final EditText textInput = findViewById(R.id.textInputCalend);
+        Button getTodoMess = (Button) findViewById(R.id.todoMessBtn);
+        getTodoMess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getTodoClick(view);
+            }
+        });
+
+        Button getEventMess = (Button) findViewById(R.id.eventMessBtn);
+        getEventMess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getEventClick(view);
+            }
+        });
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -130,6 +145,7 @@ public class Calendar extends AppCompatActivity {
                 bwMonths.write(months[i]);
                 bwYears.write(years[i]);
 
+
             }
 
             bW.close();
@@ -183,8 +199,23 @@ public class Calendar extends AppCompatActivity {
         }
 
     }
-    public void backClick (View view) {
+
+    public void getTodoClick(View view) {
+        EditText textInput = findViewById(R.id.textInputCalend);
+        Intent intent = getIntent();
+        String todoMessage = intent.getStringExtra("TODO_MESSAGE");
+        textInput.setText(todoMessage);
+    }
+
+    public void getEventClick(View view) {
+        EditText textInput = findViewById(R.id.textInputCalend);
+        Intent intent = getIntent();
+        String eventMessage = intent.getStringExtra("EVENT_MESSAGE");
+        textInput.setText(eventMessage);
+    }
+
+    public void backClick(View view) {
         Intent i = new Intent(this, MainActivity.class);
-        startActivity (i);
+        startActivity(i);
     }
 }
