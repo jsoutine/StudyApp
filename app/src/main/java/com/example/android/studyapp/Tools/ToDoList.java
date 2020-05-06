@@ -2,6 +2,7 @@ package com.example.android.studyapp.Tools;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +12,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.android.studyapp.Calendar;
 import com.example.android.studyapp.FileHelper;
+import com.example.android.studyapp.MainActivity;
 import com.example.android.studyapp.R;
 
 import java.io.File;
@@ -21,6 +24,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
 
     private EditText itemET;
     private Button btn;
+    private Button btn2;
     private ListView itemsList;
 
     private ArrayList<String> items;
@@ -33,6 +37,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
 
         itemET = findViewById(R.id.item_edit_text);
         btn = findViewById(R.id.add_btn);
+        btn2 = findViewById(R.id.add_calend_btn);
         itemsList = findViewById(R.id.items_list);
 
         items = FileHelper.readData(this);
@@ -40,6 +45,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
         itemsList.setAdapter(adapter);
 
         btn.setOnClickListener(this);
+        btn2.setOnClickListener(this);
         itemsList.setOnItemClickListener(this);
     }
 
@@ -54,6 +60,17 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
                 FileHelper.writeData(items, this);
                 Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.add_calend_btn:
+                itemEntered = itemET.getText().toString();
+                adapter.add(itemEntered);
+                itemET.setText("");
+                FileHelper.writeData(items, this);
+                Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, Calendar.class);
+                i.putExtra("TODO_MESSAGE", itemEntered);
+                startActivity (i);
+                break;
+
         }
     }
 
