@@ -19,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+
+        <activity android:name=".Tools.PersonalPage"></activity>
         <activity android:name=".Tools.MemoryCards.DeckMenu" />
         <activity android:name=".Events.NoteEditor" />
         <activity android:name=".Events.CourseNotes" />

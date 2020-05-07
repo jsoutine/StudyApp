@@ -62,7 +62,6 @@ public class CardMaker extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), DeckMenu.class);
 
-
         question = questionEditText.getText().toString();
         answer = answerEditText.getText().toString();
 
