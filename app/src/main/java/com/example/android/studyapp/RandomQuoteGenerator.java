@@ -3,10 +3,7 @@ package com.example.android.studyapp;
 import java.util.Random;
 
 public class RandomQuoteGenerator {
-
-
     public static String quoteGenerator () {
-
         Random random = new Random();
         String[] quotesList = new String[8];
         int randomNumber = random.nextInt(quotesList.length);
