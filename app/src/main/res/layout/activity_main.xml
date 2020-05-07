@@ -42,13 +42,13 @@
             android:text="MY PAGE" />
 
         <Button
-            android:id="@+id/toolsButton"
+            android:id="@+id/eventsButton"
             style="@style/JuliusButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:onClick="toolsClick"
-            android:text="TOOLS" />
+            android:onClick="eventClick"
+            android:text="COURSES" />
 
         <Button
             android:id="@+id/toolsButton2"
