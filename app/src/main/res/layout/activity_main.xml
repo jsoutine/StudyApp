@@ -33,16 +33,25 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/eventButton"
+            android:id="@+id/personalButton"
             style="@style/JuliusButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:onClick="eventClick"
-            android:text="COURSES" />
+            android:onClick="personalClick"
+            android:text="MY PAGE" />
 
         <Button
             android:id="@+id/toolsButton"
+            style="@style/JuliusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="toolsClick"
+            android:text="TOOLS" />
+
+        <Button
+            android:id="@+id/toolsButton2"
             style="@style/JuliusButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

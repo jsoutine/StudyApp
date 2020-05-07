@@ -16,5 +16,8 @@
     <string name="create_new_deck">CREATE NEW DECK</string>
     <string name="choose_your_deck">Choose your deck</string>
     <string name="delete_decks_by_long_pressing_on_desired_deck">Delete decks by long pressing on desired deck</string>
+    <string name="user_profile_image">User Profile Image</string>
+    <string name="personal_page">PERSONAL PAGE</string>
+    <string name="userName">John Userson</string>
 
 </resources>

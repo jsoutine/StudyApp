@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.android.studyapp.Events.ViewCourses;
+import com.example.android.studyapp.Tools.PersonalPage;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.i(TAG, "On Restart");
+    }
+
+    public void personalClick (View view) {
+        Intent i = new Intent(this, PersonalPage.class);
+        startActivity (i);
     }
 
     public void eventClick (View view) {
