@@ -37,10 +37,42 @@ public class TimerMenu extends AppCompatActivity {
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private long mEndTime;
 
+    private Accelerometer accelerometer;
+    private Gyroscope gyroscope;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_menu);
+
+        accelerometer= new Accelerometer(this);
+        gyroscope = new Gyroscope(this);
+
+        accelerometer.register();
+        gyroscope.register();
+
+
+            accelerometer.setListerner(new Accelerometer.Listerner() {
+                @Override
+                public void onTranslation(Float tx, float ty, float tz) {
+                    if (tx > 1.0f && mTimeLeftInMillis<START_TIME_IN_MILLIS) {
+                        pauseTimer();
+                    } else if (tx < -1.0f && mTimeLeftInMillis<START_TIME_IN_MILLIS) {
+                        pauseTimer();
+                    }
+                }
+            });
+            gyroscope.setListener(new Gyroscope.Listener() {
+                @Override
+                public void onRotation(float rx, float ry, float rz) {
+                    if (rz > 1.0f && mTimeLeftInMillis<START_TIME_IN_MILLIS) {
+                        pauseTimer();
+                    } else if (rz < -1.0f && mTimeLeftInMillis<START_TIME_IN_MILLIS) {
+                        pauseTimer();
+                    }
+                }
+            });
+
 
         mTextViewCountDown = findViewById(R.id.timeTxtView);
         quoteText = findViewById(R.id.txtViewQuote);
