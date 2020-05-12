@@ -12,14 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".ui.login.Login"
+            android:name=".Login"
             android:label="@string/title_activity_login">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
-
         <activity android:name=".Tools.PersonalPage"></activity>
         <activity android:name=".Tools.MemoryCards.DeckMenu" />
         <activity android:name=".Events.NoteEditor" />
@@ -39,10 +38,6 @@
         <activity android:name=".Tools.MemoryCards.CreateDeck" />
         <activity android:name=".Events.AddCourse" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterAccount"
