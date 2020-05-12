@@ -7,13 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConnector {
-    private Connection connection;
+    private Connection connection = null;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
+    static User loggedInUser;
     private static DBConnector dbInstance = null;
-
-    private DBConnector() {
-    }
 
     public static DBConnector getInstance() {
         if (dbInstance == null) {
@@ -22,38 +20,51 @@ public class DBConnector {
         return dbInstance;
     }
 
-    public String [] loginBackend() {
+    void loginBackend(String username, String password){
         connectToDB();
-        String[] data = new String[3];
-        String query = "SELECT * WHERE email = ? AND password = ?;";
-        try {
+        String query = "SELECT * FROM user WHERE username = ? AND password = ?;";
+        System.out.println("0");
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            System.out.println("1");
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery(query);
-            String username = resultSet.getString("username");
-            System.out.println(username);
-            String email1 = resultSet.getString("email");
-            System.out.println(email1);
-            String password1 = resultSet.getString("password");
-            System.out.println(password1);
-
-            data[0] = username;
-            data[1] = email1;
-            data[2] = password1;
-
-        } catch (SQLException e) {
+            if (resultSet.next()){
+                System.out.println("2");
+                loggedInUser = userHandler(resultSet);
+            }
+            System.out.println("4");
+            resultSet.close();
+            System.out.println("5");
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             System.out.println("ISSUE WITH DB CONNECTION FOR LOGIN BACKEND");
         }
         finally {
             disconnectFromDB();
         }
-        return data;
+    }
+
+    private User userHandler(ResultSet resultSet) throws SQLException {
+        User user = new User(
+                resultSet.getInt("iduser"),
+                resultSet.getString("username"),
+                resultSet.getString("email"),
+                resultSet.getString("password"),
+                resultSet.getString("calenderaddress"));
+        System.out.println("Username: " + user.getUsername() + " | Email: " + user.getEmail());
+        return user;
     }
 
     private void connectToDB() {
-        String url = "den1.mysql5.gear.host";
+        String url = "jdbc:mysql://den1.mysql5.gear.host:3306/studeasydb?verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true&user=studeasydb&password=studeasy!&serverTimeZone=UTF-8";
+        connection = null;
         try {
+            System.out.println("(0");
             connection = DriverManager.getConnection(url);
+            System.out.println("(1");
             preparedStatement = (PreparedStatement) connection.createStatement();
+            System.out.println("(2");
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("ERROR CONNECTING TO DB");
