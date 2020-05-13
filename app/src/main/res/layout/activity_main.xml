@@ -77,7 +77,6 @@
             android:onClick="helpClick"
             android:text="HELP" />
     </LinearLayout>
-
     <TextView
         android:id="@+id/testForUserLogin"
         android:layout_width="wrap_content"
@@ -88,5 +87,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout4"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
