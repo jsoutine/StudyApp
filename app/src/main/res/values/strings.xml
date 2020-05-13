@@ -31,4 +31,5 @@
     <string name="username">Username</string>
     <string name="verify_password">Verify password</string>
     <string name="create_account">Create account</string>
+    <string name="currently_empty">Currently empty...</string>
 </resources>
