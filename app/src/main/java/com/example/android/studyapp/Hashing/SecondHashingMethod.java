@@ -1,44 +1,74 @@
 package com.example.android.studyapp.Hashing;
 
-import java.security.MessageDigest;
+
+import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+
+//PBKDF2 stands for Password-based-Key-Derivative-Function
+//HMAC stands for Keyed-Hash Message Authentication Code
+
+// hashing using PBKDF2WithHmacSHA1
 
 public class SecondHashingMethod {
 
-    // best way to store in database username, saltvalue and hashvalue
-    //using hash method "SHA-256
-    //with salting
+    public static String generateHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException{
+        int iterations = 1000;
+        char[] chars = password.toCharArray();
+        byte [] salt = getSalt();
 
-    private String algoriyhm = "SHA-256";
-    private byte[] salt = createSalt();
-    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
-
-    private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance(algorithm);
-        digest.reset();
-        digest.update(salt);
-        byte[] hash = digest.digest(data.getBytes());
-        return byteToStringHex(hash);
-
+        PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        byte[] hash = secretKeyFactory.generateSecret(spec).getEncoded();
+        System.out.println(iterations + ":" + toHex(salt) + ":" + toHex(hash));
+        return iterations + ":" + toHex(salt) + ":" + toHex(hash);
     }
 
+    private static byte[] getSalt() throws NoSuchAlgorithmException{
+        SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
+    }
 
-    public static String byteToStringHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int i = 0; i < bytes.length; i++) {
-            int v = bytes[i] & 0xFF;
-            hexChars[i * 2] = hexArray[v >>> 4];
-            hexChars[i * 2 + 1] = hexArray[v & 0x0F];
+    private static String toHex (byte[] array) throws NoSuchAlgorithmException{
+        BigInteger bi = new BigInteger(1, array);
+        String hex = bi.toString(16);
+        int paddingLength = (array.length*2) - hex.length();
+        if (paddingLength > 0){
+            return String.format("%0" + paddingLength + "d",0) + hex;
+        }else {
+            return hex;
         }
-        return new String(hexChars);
     }
 
-    private byte[] createSalt() {
-        byte[] bytes = new byte[20];
-        SecureRandom random = new SecureRandom();
-        random.nextBytes(bytes);
+    //restoring hashed data
+    public static boolean validatePin(String originalPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        String [] parts = storedPassword.split(":");
+        int iterations = Integer.parseInt(parts[0]);
+        byte [] salt = fromHex(parts[1]);
+        byte [] hash = fromHex(parts[2]);
+
+        PBEKeySpec spec = new PBEKeySpec(originalPassword.toCharArray(), salt, iterations, hash.length*8);
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        byte [] testHash = skf.generateSecret(spec).getEncoded();
+
+        int diff = hash.length ^ testHash.length;
+        for (int i = 0; i < hash.length && i < testHash.length; i++) {
+            diff |= hash[i] ^ testHash[i];
+        }
+        return diff ==0;
+    }
+
+    private static byte[] fromHex(String hex){
+        byte[] bytes = new byte[hex.length() / 2];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
+        }
         return bytes;
     }
 }

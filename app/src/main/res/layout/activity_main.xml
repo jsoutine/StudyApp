@@ -77,5 +77,4 @@
             android:onClick="helpClick"
             android:text="HELP" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
