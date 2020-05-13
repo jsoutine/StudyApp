@@ -1,17 +1,19 @@
 package com.example.android.studyapp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class DBConnector {
-    private Connection connection = null;
+public class DBConnector implements Runnable{
+    private Connection connection;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
-    static User loggedInUser;
+    static User loggedInUser = null;
     private static DBConnector dbInstance = null;
+    private String username;
+    private String password;
+
+    @Override
+    public void run() {
+    }
 
     public static DBConnector getInstance() {
         if (dbInstance == null) {
@@ -20,28 +22,44 @@ public class DBConnector {
         return dbInstance;
     }
 
-    void loginBackend(String username, String password){
-        connectToDB();
-        String query = "SELECT * FROM user WHERE username = ? AND password = ?;";
-        System.out.println("0");
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
-            System.out.println("1");
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
-            resultSet = preparedStatement.executeQuery(query);
-            if (resultSet.next()){
-                System.out.println("2");
-                loggedInUser = userHandler(resultSet);
+    void loginBackend(String un, String pw) {
+        username = un;
+        password = pw;
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("T1 running!");
+                connectToDB();
+                String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+                System.out.println("0");
+                if (connection != null) {
+                    System.out.println("!CONN = NULL");
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                        System.out.println("1");
+                        preparedStatement.setString(1, username);
+                        preparedStatement.setString(2, password);
+                        resultSet = preparedStatement.executeQuery();
+                        if (resultSet.next()) {
+                            System.out.println("2");
+                            loggedInUser = userHandler(resultSet);
+                        }
+                        System.out.println("3");
+                        resultSet.close();
+                    } catch (SQLException | NullPointerException e) {
+                        e.printStackTrace();
+                        System.out.println("ISSUE WITH DB CONNECTION FOR LOGIN BACKEND");
+                    } finally {
+                        disconnectFromDB();
+                    }
+
+                }
             }
-            System.out.println("4");
-            resultSet.close();
-            System.out.println("5");
-        } catch (SQLException | NullPointerException e) {
+        });
+        t1.start();
+        try{
+            t1.join();
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            System.out.println("ISSUE WITH DB CONNECTION FOR LOGIN BACKEND");
-        }
-        finally {
-            disconnectFromDB();
         }
     }
 
@@ -52,23 +70,26 @@ public class DBConnector {
                 resultSet.getString("email"),
                 resultSet.getString("password"),
                 resultSet.getString("calenderaddress"));
-        System.out.println("Username: " + user.getUsername() + " | Email: " + user.getEmail());
+        System.out.println("Username: " + user.getUsername() + " | Email: " + user.getEmail() + " | PW:" + user.getPassword());
         return user;
     }
 
-    private void connectToDB() {
-        String url = "jdbc:mysql://den1.mysql5.gear.host:3306/studeasydb?verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true&user=studeasydb&password=studeasy!&serverTimeZone=UTF-8";
-        connection = null;
+    private void connectToDB(){
+        System.out.println("CONNECT REACHED");
+        String ip = "den1.mysql5.gear.host";
+        String port = "3306";
+        String database = "StudEasyDB";
+        String user = "studeasydb";
+        String password = "studeasydb!";
         try {
+            String url = "jdbc:mysql://" + ip + ":" + port + "/" + database + "?verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true&user=" + user + "&password=" + password + "&serverTimeZone=UTF-8";
             System.out.println("(0");
             connection = DriverManager.getConnection(url);
             System.out.println("(1");
-            preparedStatement = (PreparedStatement) connection.createStatement();
-            System.out.println("(2");
-        } catch (SQLException e) {
+        } catch (
+                SQLException e) {
             e.printStackTrace();
             System.out.println("ERROR CONNECTING TO DB");
-            disconnectFromDB();
         }
     }
 
@@ -81,7 +102,6 @@ public class DBConnector {
                 System.out.println("PROBLEM CLOSING DB ResultSet");
             }
         }
-
         if (preparedStatement != null) {
             try {
                 preparedStatement.close();
@@ -90,7 +110,6 @@ public class DBConnector {
                 System.out.println("PROBLEM CLOSING DB PreparedStatement");
             }
         }
-
         if (connection != null) {
             try {
                 connection.close();
@@ -100,6 +119,6 @@ public class DBConnector {
             }
         }
     }
+
+
 }
-
-
