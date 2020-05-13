@@ -2,14 +2,17 @@ package com.example.android.studyapp;
 
 import java.sql.*;
 
-public class DBConnector implements Runnable{
+public class DBConnector implements Runnable {
     private Connection connection;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
-    static User loggedInUser = null;
-    private static DBConnector dbInstance = null;
+    static User loggedInUser;
+    private static DBConnector dbInstance;
     private String username;
     private String password;
+
+    DBConnector() {
+    }
 
     @Override
     public void run() {
@@ -25,25 +28,30 @@ public class DBConnector implements Runnable{
     void loginBackend(String un, String pw) {
         username = un;
         password = pw;
+
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
+                User tempUser;
                 System.out.println("T1 running!");
                 connectToDB();
                 String query = "SELECT * FROM user WHERE username = ? AND password = ?";
                 System.out.println("0");
                 if (connection != null) {
-                    System.out.println("!CONN = NULL");
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    //System.out.println("!CONN = NULL");
+                    try {
+                        preparedStatement = connection.prepareStatement(query);
                         System.out.println("1");
                         preparedStatement.setString(1, username);
                         preparedStatement.setString(2, password);
                         resultSet = preparedStatement.executeQuery();
-                        if (resultSet.next()) {
+                        while (resultSet.next()) {
                             System.out.println("2");
-                            loggedInUser = userHandler(resultSet);
+                            tempUser = userHandler(resultSet);
+                            System.out.println(tempUser.getEmail());
+                            loggedInUser = tempUser;
+                            System.out.println("3");
                         }
-                        System.out.println("3");
                         resultSet.close();
                     } catch (SQLException | NullPointerException e) {
                         e.printStackTrace();
@@ -51,12 +59,12 @@ public class DBConnector implements Runnable{
                     } finally {
                         disconnectFromDB();
                     }
-
                 }
             }
         });
+
         t1.start();
-        try{
+        try {
             t1.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -74,7 +82,11 @@ public class DBConnector implements Runnable{
         return user;
     }
 
-    private void connectToDB(){
+    private void registerBackend (User newUser){
+
+    }
+
+    private void connectToDB() {
         System.out.println("CONNECT REACHED");
         String ip = "den1.mysql5.gear.host";
         String port = "3306";

@@ -33,6 +33,9 @@ public class PersonalPage extends AppCompatActivity {
         final ListView eventsList = (ListView) findViewById(R.id.eventsList);
         final ListView tasksList = (ListView) findViewById(R.id.taskList);
 
+        String username;
+        String email;
+
 
         //these values are placeholders, information will be fetched from the database.
         UserInformation userInformation = new UserInformation("John Userson", "7 out of 9 correct",

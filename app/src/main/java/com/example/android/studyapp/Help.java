@@ -44,13 +44,10 @@ public class Help extends AppCompatActivity {
         tipTheTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 launchSwish();
-
             }
         });
     }
-
 
     public void dialContactPhone(final String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -65,17 +62,14 @@ public class Help extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT, "Text here");
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-
+            e.printStackTrace();
         }
     }
 
-
     public void launchSwish () {
-
         Intent launchIntent = getPackageManager().getLaunchIntentForPackage("se.bankgirot.swish");
         if (launchIntent != null) {
             startActivity(launchIntent);//null pointer check in case package name was not found
         }
     }
-
 }

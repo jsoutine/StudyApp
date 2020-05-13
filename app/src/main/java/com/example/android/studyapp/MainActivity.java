@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.Tools.PersonalPage;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
-public class MainActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
 
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     RandomQuoteGenerator randomQuoteGenerator = new RandomQuoteGenerator();
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        TextView test = findViewById(R.id.testForUserLogin);
+        String testar = DBConnector.loggedInUser.getUsername();
+        test.setText(testar);
     }
 
     @Override
