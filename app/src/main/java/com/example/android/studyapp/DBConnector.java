@@ -82,8 +82,8 @@ public class DBConnector implements Runnable {
         return user;
     }
 
-    private void registerBackend (User newUser){
-
+    public void registerBackend (String firstName, String lastName, String username, String email, String password){
+        String query = "INSERT INTO `user` (iduser, username, email, password, firstname, lastname, calenderaddress, timer, taskkey, courseaddress) VALUES (?,?,?,?,?,?,?,?,?,?)";
     }
 
     private void connectToDB() {
