@@ -1,9 +1,7 @@
 package com.example.android.studyapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,8 +14,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        /*StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);*/
     }
 
     public void mainActivityBtnPressed(View view) {
@@ -29,7 +25,6 @@ public class Login extends AppCompatActivity {
         } else if (usernameEditText.getText().toString().isEmpty() || passwordEditText.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Username or password fields are empty.", Toast.LENGTH_SHORT).show();
         } else {
-            new background().execute();
             try {
                 dbConnector.loginBackend(usernameEditText.getText().toString(), passwordEditText.getText().toString());
                 System.out.println(usernameEditText.getText().toString() + " | " + passwordEditText.getText().toString());
@@ -49,27 +44,5 @@ public class Login extends AppCompatActivity {
     public void registerBtnPressed(View view) {
         Intent intent = new Intent(this, RegisterAccount.class);
         startActivity(intent);
-    }
-
-    private class background extends AsyncTask<Void,Void,Void>{
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            dbConnector.connectToDB();
-            return null;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            Toast.makeText(getApplicationContext(), "Async Start", Toast.LENGTH_SHORT).show();
-
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            Toast.makeText(getApplicationContext(), "Async End", Toast.LENGTH_SHORT).show();
-            super.onPostExecute(aVoid);
-        }
     }
 }
