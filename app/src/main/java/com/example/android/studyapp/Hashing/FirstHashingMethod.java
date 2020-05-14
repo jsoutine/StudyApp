@@ -31,7 +31,7 @@ public class FirstHashingMethod {
         }
         return new String(hexChars);
     }
-    public byte[] getSalt() {
+    public static byte[] getSalt() {
         byte[] bytes = new byte[20];
         SecureRandom random = new SecureRandom();
         random.nextBytes(bytes);
