@@ -12,13 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.android.studyapp.Hashing.FirstHashingMethod;
-import com.example.android.studyapp.Hashing.SecondHashingMethod;
-
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 public class Help extends AppCompatActivity {
 
     Activity startSwish = new Activity();
@@ -27,23 +20,6 @@ public class Help extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-//        ---------- DETTA VAR FÖR TESTA FÖR MÖTE 3 ------------
-//        String test = "hejsebastianhej";
-//        System.out.println(test);
-//        try {
-//            String a = testHashingMethod(test);
-//            System.out.println("testing SHA1");
-//            System.out.println(a);
-//            System.out.println(testReHashingMethod(test, a));
-//            System.out.println(testReHashingMethod("hej", a));
-//            System.out.println("----testing MD5----");
-//            System.out.println(testingMD5(test));
-//        } catch (InvalidKeySpecException e) {
-//            e.printStackTrace();
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        }
-        //        ---------- DETTA VAR FÖR TESTA FÖR MÖTE 3 ------------
 
         Button btnPhoneCall = (Button) findViewById(R.id.btnCallUs);
         Button emailUs = (Button) findViewById(R.id.btnEmailUs);
@@ -73,20 +49,6 @@ public class Help extends AppCompatActivity {
         });
     }
 
-//    public String testHashingMethod(String pw) throws InvalidKeySpecException, NoSuchAlgorithmException {
-//       String methoddone = SecondHashingMethod.generateHash(pw);
-//        return methoddone;
-//    }
-//    public String testReHashingMethod(String originalPw, String storedPw) throws InvalidKeySpecException, NoSuchAlgorithmException {
-//        boolean testReHashing = SecondHashingMethod.validatePin(originalPw, storedPw);
-//        String testme = Boolean.toString(testReHashing);
-//        return testme;
-//    }
-//    public String testingMD5(String pw) throws NoSuchAlgorithmException {
-//        byte[] salt = FirstHashingMethod.getSalt();
-//        String testMD5 = FirstHashingMethod.generateHash(pw,"MD5", salt);
-//        return testMD5;
-//    }
 
     public void dialContactPhone(final String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);

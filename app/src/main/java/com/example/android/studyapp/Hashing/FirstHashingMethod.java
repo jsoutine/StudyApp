@@ -37,5 +37,4 @@ public class FirstHashingMethod {
         random.nextBytes(bytes);
         return bytes;
     }
-
 }
