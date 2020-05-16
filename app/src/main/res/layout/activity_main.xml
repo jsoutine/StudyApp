@@ -64,7 +64,6 @@
             android:onClick="helpClick"
             android:text="HELP" />
     </LinearLayout>
-
     <TextView
         android:id="@+id/testForUserLogin"
         android:layout_width="wrap_content"

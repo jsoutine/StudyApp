@@ -2,25 +2,27 @@ package com.example.android.studyapp.Hashing;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
 // using hash method MD5
 // without salting
 public class FirstHashingMethod {
 
-    private String algoriyhm = "MD5";
+    private String algorithm = "MD5";
+
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    private static String generateHash(String data, String algorithm) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance(algorithm);
-        digest.reset();
-        byte[] hash = digest.digest(data.getBytes());
+    public static String generateHash(String data, String algorithm, byte [] salt) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(algorithm);
+        md.reset();
+        md.update(salt);
+        byte[] hash = md.digest(data.getBytes());
         return byteToStringHex(hash);
-
     }
 
 
-    public static String byteToStringHex(byte[] bytes) {
+    private static String byteToStringHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for (int i = 0; i < bytes.length; i++) {
             int v = bytes[i] & 0xFF;
@@ -28,5 +30,11 @@ public class FirstHashingMethod {
             hexChars[i * 2 + 1] = hexArray[v & 0x0F];
         }
         return new String(hexChars);
+    }
+    public static byte[] getSalt() {
+        byte[] bytes = new byte[20];
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(bytes);
+        return bytes;
     }
 }
