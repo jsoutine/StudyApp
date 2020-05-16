@@ -2,6 +2,7 @@ package com.example.android.studyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,19 +15,22 @@ import com.example.android.studyapp.Tools.ToolsMenu;
 
 import org.w3c.dom.Text;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     RandomQuoteGenerator randomQuoteGenerator = new RandomQuoteGenerator();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
         TextView test = findViewById(R.id.testForUserLogin);
-        String testar = DBConnector.loggedInUser.getUsername();
-        test.setText(testar);
+        String testar = DBConnector.loggedInUser.getFirstName();
+        test.setText("Welcome " + testar + "!");
     }
 
     @Override

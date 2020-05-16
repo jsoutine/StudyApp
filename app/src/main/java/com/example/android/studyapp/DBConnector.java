@@ -6,12 +6,13 @@ public class DBConnector implements Runnable {
     private Connection connection;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
-    static User loggedInUser;
+    public static User loggedInUser;
     private static DBConnector dbInstance;
     private String username;
     private String password;
+    private boolean checkUserInDB;
 
-    DBConnector() {
+    public DBConnector() {
     }
 
     @Override
@@ -29,7 +30,7 @@ public class DBConnector implements Runnable {
         username = un;
         password = pw;
 
-        Thread t1 = new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 User tempUser;
@@ -38,19 +39,18 @@ public class DBConnector implements Runnable {
                 String query = "SELECT * FROM user WHERE username = ? AND password = ?";
                 System.out.println("0");
                 if (connection != null) {
-                    //System.out.println("!CONN = NULL");
                     try {
                         preparedStatement = connection.prepareStatement(query);
-                        System.out.println("1");
+                        //System.out.println("1");
                         preparedStatement.setString(1, username);
                         preparedStatement.setString(2, password);
                         resultSet = preparedStatement.executeQuery();
                         while (resultSet.next()) {
-                            System.out.println("2");
+                            //System.out.println("2");
                             tempUser = userHandler(resultSet);
                             System.out.println(tempUser.getEmail());
                             loggedInUser = tempUser;
-                            System.out.println("3");
+                            //System.out.println("3");
                         }
                         resultSet.close();
                     } catch (SQLException | NullPointerException e) {
@@ -63,9 +63,9 @@ public class DBConnector implements Runnable {
             }
         });
 
-        t1.start();
+        t2.start();
         try {
-            t1.join();
+            t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -77,13 +77,69 @@ public class DBConnector implements Runnable {
                 resultSet.getString("username"),
                 resultSet.getString("email"),
                 resultSet.getString("password"),
+                resultSet.getString("firstName"),
+                resultSet.getString("lastName"),
                 resultSet.getString("calenderaddress"));
         System.out.println("Username: " + user.getUsername() + " | Email: " + user.getEmail() + " | PW:" + user.getPassword());
         return user;
     }
 
-    public void registerBackend (String firstName, String lastName, String username, String email, String password){
-        String query = "INSERT INTO `user` (iduser, username, email, password, firstname, lastname, calenderaddress, timer, taskkey, courseaddress) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    boolean registerBackend(final RegUser user) {
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String query = "INSERT INTO `user` (username, email, password, firstname, lastname) VALUES (?,?,?,?,?)";
+                System.out.println("T2 running!");
+                connectToDB();
+                verifyUniqueUser(user);
+                if (!checkUserInDB) {
+                    if (connection != null) {
+                        try {
+                            preparedStatement = connection.prepareStatement(query);
+                            System.out.println("1");
+                            preparedStatement.setString(1, user.getUsername());
+                            preparedStatement.setString(2, user.getEmail());
+                            preparedStatement.setString(3, user.getPassword());
+                            preparedStatement.setString(4, user.getFirstName());
+                            preparedStatement.setString(5, user.getLastName());
+                            preparedStatement.executeUpdate();
+                        } catch (SQLException | NullPointerException e) {
+                            e.printStackTrace();
+                            System.out.println("ISSUE WITH DB CONNECTION FOR LOGIN BACKEND");
+                        } finally {
+                            disconnectFromDB();
+                        }
+                    }
+                } else {
+                    System.out.println("User already exists with entered username or email. Change these to continue!");
+                }
+            }
+        });
+        t2.start();
+        try {
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return checkUserInDB;
+    }
+
+    private void verifyUniqueUser(RegUser user) {
+        String query = "SELECT * FROM user WHERE username = ? OR email = ?";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            System.out.println("1");
+            preparedStatement.setString(1, user.getUsername());
+            preparedStatement.setString(2, user.getEmail());
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                checkUserInDB = true;
+            } else {
+                checkUserInDB = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void connectToDB() {
@@ -131,6 +187,4 @@ public class DBConnector implements Runnable {
             }
         }
     }
-
-
 }

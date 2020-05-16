@@ -1,14 +1,11 @@
 package com.example.android.studyapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.IllegalFormatException;
 
 public class RegisterAccount extends AppCompatActivity {
     DBConnector dbConnector = new DBConnector();
@@ -20,19 +17,27 @@ public class RegisterAccount extends AppCompatActivity {
     }
 
     public void registerBtnPressed(View view) {
-        EditText firstNameEditText = findViewById(R.id.firstNameEditText);
-        EditText lastNameEditText = findViewById(R.id.lastNameEditText);
         EditText usernameEditText = findViewById(R.id.usernameTextField);
         EditText emailEditText = findViewById(R.id.regEmail);
         EditText passwordEditText = findViewById(R.id.regPW);
         EditText verPasswordEditText = findViewById(R.id.verRegPW);
+        EditText firstNameEditText = findViewById(R.id.firstNameEditText);
+        EditText lastNameEditText = findViewById(R.id.lastNameEditText);
 
         if (firstNameEditText.getText().toString().isEmpty() || lastNameEditText.getText().toString().isEmpty() || usernameEditText.getText().toString().isEmpty() || emailEditText.getText().toString().isEmpty() || passwordEditText.getText().toString().isEmpty() || verPasswordEditText.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Some/all text fields are missing text. Try again!", Toast.LENGTH_SHORT).show();
         } else if (!passwordEditText.getText().toString().matches(verPasswordEditText.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Password entered doesn't match with the one entered in Verify. Try again!", Toast.LENGTH_SHORT).show();
-        } else {//if (dbConnector.registerBackend(firstNameEditText.getText().toString(), lastNameEditText.getText().toString(), usernameEditText.getText().toString(), emailEditText.getText().toString(), passwordEditText.getText().toString()) && passwordEditText.getText().toString().matches(verPasswordEditText.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "REGISTERED (TEST MESSAGE)", Toast.LENGTH_SHORT).show();
+        } else if (!usernameEditText.getText().toString().isEmpty() && !emailEditText.getText().toString().isEmpty() && !passwordEditText.getText().toString().isEmpty() && !verPasswordEditText.getText().toString().isEmpty() && !firstNameEditText.getText().toString().isEmpty() && !lastNameEditText.getText().toString().isEmpty() && passwordEditText.getText().toString().matches(verPasswordEditText.getText().toString())) {
+            System.out.println("User creation alt. reached!");
+            RegUser regUser = new RegUser(usernameEditText.getText().toString(), emailEditText.getText().toString(), passwordEditText.getText().toString(), firstNameEditText.getText().toString(), lastNameEditText.getText().toString());
+            if (!dbConnector.registerBackend(regUser)){
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_SHORT).show();
+            } else if (dbConnector.registerBackend(regUser)){
+                Toast.makeText(getApplicationContext(), "Registration failed. Username or email already exists. Try changing these to proceed!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
