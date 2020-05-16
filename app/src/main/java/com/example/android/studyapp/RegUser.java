@@ -1,30 +1,18 @@
 package com.example.android.studyapp;
 
-public class User {
-    private int userID;
+public class RegUser {
     private String username;
     private String email;
     private String password;
     private String firstName;
     private String lastName;
-    private String calenderAddress;
 
-    public User(int userID, String username, String email, String password, String firstName, String lastName, String calenderAddress) {
-        this.userID = userID;
+    public RegUser(String username, String email, String password, String firstName, String lastName) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.calenderAddress = calenderAddress;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
     }
 
     public String getUsername() {
@@ -65,13 +53,5 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getCalenderAddress() {
-        return calenderAddress;
-    }
-
-    public void setCalenderAddress(String calenderAddress) {
-        this.calenderAddress = calenderAddress;
     }
 }

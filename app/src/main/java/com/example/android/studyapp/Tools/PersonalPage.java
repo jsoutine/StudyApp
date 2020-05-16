@@ -1,6 +1,8 @@
 package com.example.android.studyapp.Tools;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +12,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.studyapp.Calendar;
+import com.example.android.studyapp.DBConnector;
 import com.example.android.studyapp.R;
+import com.example.android.studyapp.User;
+
 import java.util.ArrayList;
 
 public class PersonalPage extends AppCompatActivity {
@@ -19,7 +24,9 @@ public class PersonalPage extends AppCompatActivity {
     ArrayList<String> myTasks = new ArrayList<String>();
     ArrayAdapter<String> eventsAdapter;
     ArrayAdapter<String> tasksAdapter;
+    DBConnector dbConnector = new DBConnector();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +45,14 @@ public class PersonalPage extends AppCompatActivity {
 
 
         //these values are placeholders, information will be fetched from the database.
-        UserInformation userInformation = new UserInformation("John Userson", "7 out of 9 correct",
-                "65 out of 78 correct", "6 complete timers", "3 interrupted timers");
+        //UserInformation userInformation = new UserInformation("John Userson", "7 out of 9 correct",
+        //        "65 out of 78 correct", "6 complete timers", "3 interrupted timers");
 
-        userName.setText(userInformation.getUsername());
-        newResults.setText(userInformation.getLatestResults());
-        totalResults.setText(userInformation.getTotalResults());
-        completedTimer.setText(userInformation.getCompletedTimer());
-        interruptedTimer.setText(userInformation.getInterruptedTimer());
+        userName.setText(DBConnector.loggedInUser.getFirstName() + " " + DBConnector.loggedInUser.getLastName());
+        //newResults.setText(userInformation.getLatestResults());
+        //totalResults.setText(userInformation.getTotalResults());
+        //completedTimer.setText(userInformation.getCompletedTimer());
+        //interruptedTimer.setText(userInformation.getInterruptedTimer());
 
         //these are placeholders, actual list will be imported from classes
         myEvents.add("Meeting with Sarah Connor");

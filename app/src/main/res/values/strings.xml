@@ -31,7 +31,8 @@
     <string name="username">Username</string>
     <string name="verify_password">Verify password</string>
     <string name="create_account">Create account</string>
-    <string name="currently_empty">Currently empty...</string>
+    <string name="currently_empty">Currently empty…</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string name="prompt_username">Username</string>
 </resources>
