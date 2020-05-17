@@ -8,6 +8,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.android.studyapp.Hashing.SecondHashingMethod;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public class Login extends AppCompatActivity {
     DBConnector dbConnector = new DBConnector();
     @Override
@@ -28,15 +33,18 @@ public class Login extends AppCompatActivity {
             try {
                 dbConnector.loginBackend(usernameEditText.getText().toString(), passwordEditText.getText().toString());
                 System.out.println(usernameEditText.getText().toString() +" | " + passwordEditText.getText().toString());
+                System.out.println(DBConnector.loggedInUser.getPassword());
                 if (DBConnector.loggedInUser == null){
                     Toast.makeText(getApplicationContext(), "Error with login", Toast.LENGTH_SHORT).show();
-                } else if (DBConnector.loggedInUser.getUsername().matches(usernameEditText.getText().toString()) && DBConnector.loggedInUser.getPassword().matches(passwordEditText.getText().toString())) {
+                } else if (SecondHashingMethod.validatePin(passwordEditText.getText().toString(), DBConnector.loggedInUser.getPassword())/*DBConnector.loggedInUser.getUsername().matches(usernameEditText.getText().toString()) && DBConnector.loggedInUser.getPassword().matches(passwordEditText.getText().toString())*/) {
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }
             } catch (IllegalStateException ise) {
                 ise.printStackTrace();
                 Toast.makeText(getApplicationContext(), "Error with login", Toast.LENGTH_SHORT).show();
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                e.printStackTrace();
             }
         }
     }

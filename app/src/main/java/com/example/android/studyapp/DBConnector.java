@@ -1,5 +1,9 @@
 package com.example.android.studyapp;
 
+import com.example.android.studyapp.Hashing.SecondHashingMethod;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 
 public class DBConnector implements Runnable {
@@ -36,21 +40,17 @@ public class DBConnector implements Runnable {
                 User tempUser;
                 System.out.println("T1 running!");
                 connectToDB();
-                String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+                String query = "SELECT * FROM user WHERE username = ?";
                 System.out.println("0");
                 if (connection != null) {
                     try {
                         preparedStatement = connection.prepareStatement(query);
-                        //System.out.println("1");
                         preparedStatement.setString(1, username);
-                        preparedStatement.setString(2, password);
                         resultSet = preparedStatement.executeQuery();
                         while (resultSet.next()) {
-                            //System.out.println("2");
                             tempUser = userHandler(resultSet);
                             System.out.println(tempUser.getEmail());
                             loggedInUser = tempUser;
-                            //System.out.println("3");
                         }
                         resultSet.close();
                     } catch (SQLException | NullPointerException e) {
@@ -95,8 +95,9 @@ public class DBConnector implements Runnable {
                 if (!checkUserInDB) {
                     if (connection != null) {
                         try {
+                            user.setPassword(SecondHashingMethod.generateHash(user.getPassword()));
+                            System.out.println(user.getPassword());
                             preparedStatement = connection.prepareStatement(query);
-                            System.out.println("1");
                             preparedStatement.setString(1, user.getUsername());
                             preparedStatement.setString(2, user.getEmail());
                             preparedStatement.setString(3, user.getPassword());
@@ -106,6 +107,8 @@ public class DBConnector implements Runnable {
                         } catch (SQLException | NullPointerException e) {
                             e.printStackTrace();
                             System.out.println("ISSUE WITH DB CONNECTION FOR LOGIN BACKEND");
+                        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                            e.printStackTrace();
                         } finally {
                             disconnectFromDB();
                         }
