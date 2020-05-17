@@ -61,7 +61,7 @@ public class SecondHashingMethod {
         for (int i = 0; i < hash.length && i < testHash.length; i++) {
             diff |= hash[i] ^ testHash[i];
         }
-        return diff ==0;
+        return diff == 0;
     }
 
     private static byte[] fromHex(String hex){
