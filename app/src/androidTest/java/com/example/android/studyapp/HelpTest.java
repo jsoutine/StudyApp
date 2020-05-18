@@ -1,5 +1,7 @@
 package com.example.android.studyapp;
 
+import android.content.Intent;
+
 import com.example.android.studyapp.Events.AddCourse;
 
 import org.junit.Rule;
@@ -8,6 +10,7 @@ import org.junit.Test;
 import androidx.test.rule.ActivityTestRule;
 
 import static androidx.test.espresso.Espresso.*;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
@@ -40,13 +43,19 @@ public class HelpTest {
 
     @Test
     public void dialContactPhone() {
+        onView(withId(R.id.btnCallUs))
+                .perform(click());
     }
 
     @Test
     public void emailUs() {
+        onView(withId(R.id.btnEmailUs))
+                .perform(click());
     }
 
     @Test
     public void launchSwish() {
+        onView(withId(R.id.btntipToTeam))
+                .perform(click());
     }
 }

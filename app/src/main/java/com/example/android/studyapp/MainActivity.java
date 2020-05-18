@@ -13,6 +13,7 @@ import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.Tools.PersonalPage;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
+
 import org.w3c.dom.Text;
 
 import java.util.Objects;
