@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.Tools.PersonalPage;
@@ -20,8 +21,9 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
     RandomQuoteGenerator randomQuoteGenerator = new RandomQuoteGenerator();
+    private long backPressedTime;
+    private Toast backToast;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -66,6 +68,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.i(TAG, "On Restart");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            DBConnector.loggedInUser = null;
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to log out", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime  = System.currentTimeMillis();
     }
 
     public void personalClick (View view) {
