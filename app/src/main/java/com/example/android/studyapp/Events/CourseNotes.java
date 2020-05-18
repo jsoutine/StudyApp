@@ -128,4 +128,8 @@ public class CourseNotes extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), NoteEditor.class);
         startActivity(intent);
     }
+
+    public void removeAll() {
+        notes.clear();
+    }
 }

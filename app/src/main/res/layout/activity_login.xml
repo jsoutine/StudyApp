@@ -91,8 +91,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="246dp"
-        android:layout_height="461dp"
+        android:layout_width="260dp"
+        android:layout_height="270dp"
         android:src="@drawable/study_easy_logo_free"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"

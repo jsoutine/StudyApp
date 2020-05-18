@@ -14,6 +14,7 @@ import com.example.android.studyapp.Events.ViewCourses;
 import com.example.android.studyapp.Tools.PersonalPage;
 import com.example.android.studyapp.Tools.ToolsMenu;
 
+
 import org.w3c.dom.Text;
 
 import java.util.Objects;
@@ -31,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
         TextView test = findViewById(R.id.testForUserLogin);
-        String testar = DBConnector.loggedInUser.getFirstName();
-        test.setText("Welcome " + testar + "!");
+        //String testar = DBConnector.loggedInUser.getFirstName();
+        //test.setText("Welcome " + testar + "!");
     }
 
     @Override
