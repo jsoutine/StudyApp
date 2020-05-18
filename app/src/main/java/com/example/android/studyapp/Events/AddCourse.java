@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class AddCourse extends AppCompatActivity {
-
     int courseId;
     EditText courseNameText;
     SharedPreferences sharedPreferences;
@@ -59,7 +58,6 @@ public class AddCourse extends AppCompatActivity {
                 HashSet<String> set = new HashSet<>(ViewCourses.myCourses);
                 sharedPreferences.edit().putStringSet("myCourses", set).apply();
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
 

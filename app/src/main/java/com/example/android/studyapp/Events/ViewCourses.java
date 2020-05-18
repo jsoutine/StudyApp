@@ -74,7 +74,6 @@ public class ViewCourses extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 myCourses.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
-
                                 sharedPreferences = getApplicationContext().getSharedPreferences
                                         ("com.example.android.studyapp.Events", Context.MODE_PRIVATE);
                                 HashSet<String> set = new HashSet<>(myCourses);
