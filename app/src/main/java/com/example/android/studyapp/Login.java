@@ -15,6 +15,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public class Login extends AppCompatActivity {
     DBConnector dbConnector = new DBConnector();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +33,10 @@ public class Login extends AppCompatActivity {
         } else {
             try {
                 dbConnector.loginBackend(usernameEditText.getText().toString(), passwordEditText.getText().toString());
-                System.out.println(usernameEditText.getText().toString() +" | " + passwordEditText.getText().toString());
-                System.out.println(DBConnector.loggedInUser.getPassword());
+                System.out.println(usernameEditText.getText().toString() + " | " + passwordEditText.getText().toString());
                 if (DBConnector.loggedInUser == null){
                     Toast.makeText(getApplicationContext(), "Error with login", Toast.LENGTH_SHORT).show();
-                } else if (SecondHashingMethod.validatePin(passwordEditText.getText().toString(), DBConnector.loggedInUser.getPassword())/*DBConnector.loggedInUser.getUsername().matches(usernameEditText.getText().toString()) && DBConnector.loggedInUser.getPassword().matches(passwordEditText.getText().toString())*/) {
+                } else if (SecondHashingMethod.validatePin(passwordEditText.getText().toString(), DBConnector.loggedInUser.getPassword()) && DBConnector.loggedInUser.getPassword() != null/*DBConnector.loggedInUser.getUsername().matches(usernameEditText.getText().toString()) && DBConnector.loggedInUser.getPassword().matches(passwordEditText.getText().toString())*/) {
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -53,4 +53,6 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterAccount.class);
         startActivity(intent);
     }
+
+
 }
