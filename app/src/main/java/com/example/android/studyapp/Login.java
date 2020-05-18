@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void registerBtnPressed(View view) {
+        System.out.println("Reg. button pressed!");
         Intent intent = new Intent(this, RegisterAccount.class);
         startActivity(intent);
     }
