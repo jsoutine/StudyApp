@@ -3,7 +3,6 @@ package com.example.android.studyapp;
 import org.junit.Rule;
 import org.junit.Test;
 
-import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.rule.ActivityTestRule;
 
@@ -15,10 +14,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-
-
-
-import static org.junit.Assert.*;
 
 public class LoginTest {
 
@@ -32,7 +27,10 @@ public class LoginTest {
                 .check(matches(isClickable()))
                 .check(matches(isCompletelyDisplayed()))
                 .check(matches(isEnabled()));
-
+        onView(withId(R.id.register))
+                .check(matches(isClickable()))
+                .check(matches(isCompletelyDisplayed()))
+                .check(matches(isEnabled()));
     }
 
     @Test
@@ -49,5 +47,7 @@ public class LoginTest {
 
     @Test
     public void registerBtnPressed() {
+        onView(withId(R.id.login))
+                .perform(click());
     }
 }

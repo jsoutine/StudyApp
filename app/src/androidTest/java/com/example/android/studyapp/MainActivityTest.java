@@ -17,6 +17,8 @@ import static org.hamcrest.Matchers.containsString;
 
 public class MainActivityTest {
 
+    DBConnector DBconnector = new DBConnector();
+
     @Rule
     public ActivityTestRule<MainActivity> activityRule =
             new ActivityTestRule<>(MainActivity.class);
@@ -49,12 +51,6 @@ public class MainActivityTest {
                 .check(matches(isCompletelyDisplayed()))
                 .check(matches(isEnabled()));
 
-    }
-
-    @Test
-    public void personalClick() {
-        onView(withId(R.id.personalButton))
-                .perform(click());
     }
 
     @Test

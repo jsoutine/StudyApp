@@ -55,7 +55,6 @@ public class HelpTest {
 
     @Test
     public void launchSwish() {
-        onView(withId(R.id.btntipToTeam))
-                .perform(click());
+        ;
     }
 }
