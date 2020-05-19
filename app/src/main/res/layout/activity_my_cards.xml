@@ -25,7 +25,7 @@
 
     <Button
         android:id="@+id/cardButton"
-        style="@style/JuliusButton"
+        style="@style/greenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="slide"

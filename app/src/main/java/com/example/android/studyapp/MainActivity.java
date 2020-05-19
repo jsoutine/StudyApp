@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
-        TextView test = findViewById(R.id.testForUserLogin);
+        //TextView test = findViewById(R.id.testForUserLogin);
         //String testar = DBConnector.loggedInUser.getFirstName();
         //test.setText("Welcome " + testar + "!");
     }

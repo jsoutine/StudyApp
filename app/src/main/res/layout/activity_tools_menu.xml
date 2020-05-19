@@ -7,67 +7,122 @@
     tools:context=".Tools.ToolsMenu">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout6"
+        android:layout_width="412dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/ic_launcher_background"
+        android:elevation="2dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/createButton2"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="memoryClick"
-            android:text="MEMORY CARDS" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/stud_orange" />
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/btnTimerTool"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="timerClick"
-            android:text="TIMER" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-        <Button
-            android:id="@+id/viewButton6"
-            style="@style/JuliusButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="brownNoiseClick"
-            android:text="BROWN NOISE PLAYER" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/viewButton7"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="toDoListClick"
-            android:text="TO DO LIST" />
+            <Button
+                android:id="@+id/createButton2"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_style_white_36dp"
+                android:onClick="memoryClick"
+                android:text="MEMORY CARDS" />
 
-        <Button
-            android:id="@+id/viewButton4"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="studyClick"
-            android:text="STUDY TIPS" />
+            <Button
+                android:id="@+id/btnTimerTool"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_timer_white_36dp"
+                android:onClick="timerClick"
+                android:text="TIMER" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/viewButton5"
-            style="@style/JuliusButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="mainClick"
-            android:text="@string/back" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/viewButton6"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_play_arrow_white_36dp"
+                android:onClick="brownNoiseClick"
+                android:text="BROWN NOISE" />
+
+            <Button
+                android:id="@+id/viewButton7"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_today_white_36dp"
+                android:onClick="toDoListClick"
+                android:text="TO DO LIST" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/viewButton4"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_import_contacts_white_36dp"
+                android:onClick="studyClick"
+                android:text="STUDY TIPS" />
+
+            <Button
+                android:id="@+id/viewButton5"
+                style="@style/flatButton"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_arrow_back_big_white_36dp"
+                android:onClick="mainClick"
+                android:text="@string/back" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

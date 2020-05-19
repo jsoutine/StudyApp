@@ -23,7 +23,7 @@
 
     <Button
         android:id="@+id/saveButton"
-        style="@style/JuliusButton"
+        style="@style/greenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="saveButtonPressed"
@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/saveToCalBtn"
-        style="@style/JuliusButton"
+        style="@style/greenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="saveButtonPressed"

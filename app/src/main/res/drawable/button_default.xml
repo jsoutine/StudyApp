@@ -4,10 +4,12 @@
         android:radius="14dp"
         />
     <gradient
-        android:angle="90"
-        android:endColor="@color/colorOnPrimary"
-        android:centerColor="@color/colorAccent"
-        android:startColor="@color/colorAccent"
+        android:angle="270"
+        android:centerX="35%"
+        android:centerColor="#24CC24"
+        android:startColor="#B6FF9C"
+        android:endColor="#40D908"
+        android:type="linear"
         />
 
 </shape>

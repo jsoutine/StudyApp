@@ -26,7 +26,7 @@
 
         <Button
             android:id="@+id/add_btn"
-            style="@style/JuliusButton"
+            style="@style/greenButton"
             android:layout_width="94dp"
             android:layout_height="43dp"
             android:text="Add"
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/add_calend_btn"
-        style="@style/JuliusButton"
+        style="@style/greenButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add to calendar" />

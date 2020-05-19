@@ -20,7 +20,7 @@
 
         <Button
             android:id="@+id/viewButton6"
-            style="@style/JuliusButton"
+            style="@style/greenButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -29,7 +29,7 @@
 
         <Button
             android:id="@+id/createButton3"
-            style="@style/JuliusButton"
+            style="@style/greenButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/viewButton7"
-            style="@style/JuliusButton"
+            style="@style/greenButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
