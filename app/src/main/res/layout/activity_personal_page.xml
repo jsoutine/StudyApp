@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFFFFF"
+            android:background="@color/white"
             android:elevation="4dp"
             android:orientation="vertical">
 
@@ -52,8 +52,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:gravity="center"
                 android:text="Upcoming Events"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorAccent" />
 
             <ListView
                 android:id="@+id/eventsList"
@@ -68,9 +70,11 @@
                 android:id="@+id/textMyTasks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="44dp"
+                android:gravity="center"
                 android:text="My Tasks"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorAccent" />
 
             <ListView
                 android:id="@+id/taskList"
@@ -83,9 +87,11 @@
                 android:id="@+id/textMyStats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="44dp"
+                android:gravity="center"
                 android:text="My Stats"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorAccent" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
