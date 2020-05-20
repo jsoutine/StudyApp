@@ -4,22 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Events.CourseNotes">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="225dp"
+        android:background="@drawable/ic_launcher_background"
+        android:elevation="4dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/stud_orange" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="256dp"
+        android:layout_margin="32dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <TextView
             android:id="@+id/courseTextView"
@@ -33,7 +52,9 @@
             style="@style/Widget.AppCompat.ListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFFFFF"
             android:cacheColorHint="@color/colorAccent"
+            android:elevation="10dp"
             android:footerDividersEnabled="true"
             android:hapticFeedbackEnabled="true"
             android:headerDividersEnabled="true">
@@ -44,9 +65,11 @@
 
     <Button
         android:id="@+id/addEventButton"
-        style="@style/greenButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableStart="@drawable/outline_add_box_white_36dp"
         android:onClick="addNote"
         android:text="ADD NOTE"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,22 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Tools.MemoryCards.DeckMenu">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="225dp"
+        android:background="@drawable/ic_launcher_background"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/stud_orange" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="329dp"
+        android:layout_height="267dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="128dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <TextView
             android:id="@+id/deckTextView"
@@ -38,9 +59,11 @@
 
     <Button
         android:id="@+id/createNewDeckButton"
-        style="@style/greenButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableStart="@drawable/outline_add_box_white_36dp"
         android:onClick="createCardClick"
         android:text="@string/create_new_deck"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,15 +77,15 @@
         android:id="@+id/deleteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="72dp"
         android:gravity="center"
         android:text="@string/delete_decks_by_long_pressing_on_desired_deck"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addEventButton"
+        app:layout_constraintTop_toBottomOf="@+id/createNewDeckButton"
         app:layout_constraintVertical_bias="0.058" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

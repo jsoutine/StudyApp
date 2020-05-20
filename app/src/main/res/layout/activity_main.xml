@@ -39,7 +39,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +54,7 @@
             <Button
                 android:id="@+id/personalButton"
                 style="@style/flatButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_custom"
@@ -66,7 +67,7 @@
             <Button
                 android:id="@+id/eventsButton"
                 style="@style/flatButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/button_custom"
@@ -86,7 +87,7 @@
             <Button
                 android:id="@+id/buttonCalendar"
                 style="@style/flatButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/button_custom"
@@ -97,7 +98,7 @@
             <Button
                 android:id="@+id/toolsButton2"
                 style="@style/flatButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/button_custom"
@@ -116,7 +117,7 @@
             <Button
                 android:id="@+id/helpButton"
                 style="@style/flatButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_custom"
                 android:drawableTop="@drawable/outline_forum_white_36dp"

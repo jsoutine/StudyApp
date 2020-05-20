@@ -4,58 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Tools.MemoryCards.CreateDeck">
 
-    <EditText
-        android:id="@+id/titleText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/deckTitleHint"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="@drawable/ic_launcher_background"
+        android:elevation="2dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/subjectText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/deckSubjectHint"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintVertical_bias="0.101" />
-
-    <Button
-        android:id="@+id/button"
-        style="@style/greenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="generateDeck"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:text="@string/deckButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectText"
-        app:layout_constraintVertical_bias="0.173" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/stud_orange" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView10"
@@ -64,36 +33,83 @@
         android:gravity="center"
         android:text="@string/deckCreator"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/titleText"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.388"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="344dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="132dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-    <TextView
-        android:id="@+id/textView5"
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Title"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/titleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/deckTitleHint"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingTop="16dp"
+            android:text="Subject"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/subjectText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/deckSubjectHint"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Title"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/titleText"
+        android:background="@drawable/button_custom"
+        android:drawableTop="@drawable/outline_style_white_36dp"
+        android:onClick="generateDeck"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/deckButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Subject"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/subjectText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.166" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
