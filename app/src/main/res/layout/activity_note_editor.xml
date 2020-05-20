@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Events.NoteEditor">
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="362dp"
+        android:layout_height="530dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="128dp"
+        android:elevation="4dp"
         android:ems="10"
         android:gravity="top|left"
         android:hint="Type your notes here"
@@ -23,9 +27,11 @@
 
     <Button
         android:id="@+id/saveButton"
-        style="@style/JuliusButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableTop="@drawable/outline_save_alt_white_36dp"
         android:onClick="saveButtonPressed"
         android:text="SAVE NOTE"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,9 +42,11 @@
 
     <Button
         android:id="@+id/saveToCalBtn"
-        style="@style/JuliusButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableTop="@drawable/outline_today_white_18dp"
         android:onClick="saveButtonPressed"
         android:text="SAVE TO CALENDAR"
         app:layout_constraintBottom_toBottomOf="parent"

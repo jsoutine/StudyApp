@@ -4,77 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorOnPrimary"
+    android:clipToPadding="true"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="225dp"
+        android:background="@drawable/ic_launcher_background"
+        android:elevation="2dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/personalButton"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="personalClick"
-            android:text="MY PAGE" />
-
-        <Button
-            android:id="@+id/eventsButton"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="eventClick"
-            android:text="COURSES" />
-
-        <Button
-            android:id="@+id/toolsButton2"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="toolsClick"
-            android:text="TOOLS" />
-
-        <Button
-            android:id="@+id/buttonCalendar"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="calendarClick"
-            android:text="CALENDAR" />
-
-        <Button
-            android:id="@+id/helpButton"
-            style="@style/JuliusButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:onClick="helpClick"
-            android:text="HELP" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/stud_orange" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/testForUserLogin"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:hint="@string/currently_empty"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        android:layout_margin="32dp"
+        android:alwaysDrawnWithCache="false"
+        android:background="#FFFFFF"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:baselineAligned="false"
+            android:clipToPadding="false"
+            android:gravity="center|center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/personalButton"
+                style="@style/flatButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_face_white_36dp"
+                android:elevation="4dp"
+                android:onClick="personalClick"
+                android:outlineProvider="none"
+                android:text="@string/my_page" />
+
+            <Button
+                android:id="@+id/eventsButton"
+                style="@style/flatButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_book_white_36dp"
+                android:elevation="2dp"
+                android:onClick="eventClick"
+                android:text="COURSES" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonCalendar"
+                style="@style/flatButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_today_white_36dp"
+                android:onClick="calendarClick"
+                android:text="CALENDAR" />
+
+            <Button
+                android:id="@+id/toolsButton2"
+                style="@style/flatButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_fitness_center_white_36dp"
+                android:onClick="toolsClick"
+                android:text="TOOLS" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center|center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/helpButton"
+                style="@style/flatButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_forum_white_36dp"
+                android:onClick="helpClick"
+                android:text="HELP" />
+        </LinearLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

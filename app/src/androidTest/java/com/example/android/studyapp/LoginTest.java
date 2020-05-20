@@ -36,7 +36,7 @@ public class LoginTest {
     @Test
     public void mainActivityBtnPressed() {
         onView(withId(R.id.username))
-                .perform(typeText("tessst"))
+                .perform(typeText("testing"))
                 .perform(ViewActions.closeSoftKeyboard());
         onView(withId(R.id.password))
                 .perform(typeText("password"))

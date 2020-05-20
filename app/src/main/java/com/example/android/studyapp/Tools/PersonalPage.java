@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.android.studyapp.Calendar;
 import com.example.android.studyapp.DBConnector;
+import com.example.android.studyapp.MainActivity;
 import com.example.android.studyapp.R;
 import com.example.android.studyapp.User;
 
@@ -25,6 +26,8 @@ public class PersonalPage extends AppCompatActivity {
     ArrayAdapter<String> eventsAdapter;
     ArrayAdapter<String> tasksAdapter;
     DBConnector dbConnector = new DBConnector();
+
+    ToDoList todo = new ToDoList();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -40,21 +43,19 @@ public class PersonalPage extends AppCompatActivity {
         final ListView eventsList = (ListView) findViewById(R.id.eventsList);
         final ListView tasksList = (ListView) findViewById(R.id.taskList);
 
-        String username;
-        String email;
-
 
         //these values are placeholders, information will be fetched from the database.
-        //UserInformation userInformation = new UserInformation("John Userson", "7 out of 9 correct",
-        //        "65 out of 78 correct", "6 complete timers", "3 interrupted timers");
+        UserInformation userInformation = new UserInformation("John Userson", "7 out of 9 correct",
+                "65 out of 78 correct", "6 complete timers", "3 interrupted timers");
 
         userName.setText(DBConnector.loggedInUser.getFirstName() + " " + DBConnector.loggedInUser.getLastName());
-        //newResults.setText(userInformation.getLatestResults());
-        //totalResults.setText(userInformation.getTotalResults());
-        //completedTimer.setText(userInformation.getCompletedTimer());
-        //interruptedTimer.setText(userInformation.getInterruptedTimer());
+        newResults.setText(userInformation.getLatestResults());
+        totalResults.setText(userInformation.getTotalResults());
+        completedTimer.setText(userInformation.getCompletedTimer());
+        interruptedTimer.setText(userInformation.getInterruptedTimer());
 
         //these are placeholders, actual list will be imported from classes
+
         myEvents.add("Meeting with Sarah Connor");
         myEvents.add("Kindergarten planning");
         myEvents.add("Spanish class");
@@ -79,7 +80,8 @@ public class PersonalPage extends AppCompatActivity {
             }
         });
 
-        tasksAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, myTasks);
+
+        tasksAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, MainActivity.getItems());
 
         tasksList.setAdapter(tasksAdapter);
 

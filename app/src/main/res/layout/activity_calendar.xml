@@ -9,10 +9,13 @@
 
     <CalendarView
         android:id="@+id/calendarView"
+        style="@android:style/Widget.DeviceDefault.CalendarView"
         android:layout_width="394dp"
         android:layout_height="375dp"
         android:layout_marginTop="45dp"
         android:layout_marginBottom="311dp"
+        android:selectedDateVerticalBar="@drawable/button_default"
+        android:selectedWeekBackgroundColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -31,55 +34,76 @@
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
 
-    <Button
-        android:id="@+id/saveTextButton"
-        style="@style/JuliusButton"
-        android:layout_width="110dp"
-        android:layout_height="39dp"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Button
-        android:id="@+id/eventMessBtn"
-        style="@style/JuliusButton"
-        android:layout_width="110dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="80dp"
-        android:text="Get Events"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputCalend" />
-
-    <Button
-        android:id="@+id/todoMessBtn"
-        style="@style/JuliusButton"
-        android:layout_width="110dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:text="Get Todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputCalend" />
-
-    <Button
-        android:id="@+id/button4"
-        style="@style/JuliusButton"
-        android:layout_width="110dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="141dp"
-        android:layout_marginBottom="100dp"
-        android:onClick="backClick"
-        android:text="Back"
+    <LinearLayout
+        android:layout_width="334dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="19dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputCalend"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputCalend">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/todoMessBtn"
+                style="@style/flatButton"
+                android:layout_width="135dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_today_white_18dp"
+                android:text="Get Todo" />
+
+            <Button
+                android:id="@+id/eventMessBtn"
+                style="@style/flatButton"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_featured_play_list_white_36dp"
+                android:text="Get Events" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/saveTextButton"
+                style="@style/flatButton"
+                android:layout_width="135dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_save_alt_white_36dp"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/flatButton"
+                android:layout_width="135dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableTop="@drawable/outline_arrow_back_ios_white_36dp"
+                android:onClick="backClick"
+                android:text="Back" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,9 +25,11 @@
 
     <Button
         android:id="@+id/cardButton"
-        style="@style/JuliusButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableTop="@drawable/outline_play_arrow_white_36dp"
         android:onClick="slide"
         android:text="NEXT CARD"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,24 +84,26 @@
 
         <ImageButton
             android:id="@+id/wrongButton"
-            style="@android:style/Widget.Holo.ImageButton"
+            style="@style/Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="64dp"
             android:layout_weight="1"
             android:onClick="wrongClick"
+            android:tint="#F40C0C"
             app:srcCompat="@android:drawable/ic_delete" />
 
         <ImageButton
             android:id="@+id/correctButton"
-            style="@android:style/Widget.Holo.ImageButton"
+            style="@style/Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginLeft="64dp"
             android:layout_marginRight="32dp"
             android:layout_weight="1"
             android:onClick="correctClick"
+            android:tint="#059A0B"
             app:srcCompat="@drawable/check" />
 
     </LinearLayout>

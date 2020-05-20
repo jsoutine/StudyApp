@@ -13,11 +13,14 @@ import com.example.android.studyapp.Tools.MemoryCards.CardMenu;
 import com.example.android.studyapp.Tools.StudyTips.StudyTips;
 import com.example.android.studyapp.Tools.Timer.TimerMenu;
 
+import java.util.Objects;
+
 public class ToolsMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_tools_menu);
 
         Button timerBtnTool = (Button) findViewById(R.id.btnTimerTool);
