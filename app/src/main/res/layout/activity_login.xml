@@ -62,14 +62,13 @@
         android:id="@+id/login"
         style="@style/flatButton"
         android:layout_width="101dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/button_custom"
-        android:drawableTop="@drawable/outline_perm_identity_white_18dp"
         android:elevation="8dp"
         android:onClick="mainActivityBtnPressed"
         android:outlineProvider="background"
@@ -79,12 +78,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:background="@null"
         android:onClick="registerBtnPressed"
         android:text="@string/action_register"

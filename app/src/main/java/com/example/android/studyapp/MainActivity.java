@@ -17,6 +17,7 @@ import com.example.android.studyapp.Tools.ToolsMenu;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,12 +26,17 @@ public class MainActivity extends AppCompatActivity {
     private long backPressedTime;
     private Toast backToast;
 
+
+
+    public static ArrayList<String> items;
+
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
+        items = FileHelper.readData(this);
         //TextView test = findViewById(R.id.testForUserLogin);
         //String testar = DBConnector.loggedInUser.getFirstName();
         //test.setText("Welcome " + testar + "!");
@@ -86,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void personalClick (View view) {
         Intent i = new Intent(this, PersonalPage.class);
+        items = FileHelper.readData(this);
         startActivity (i);
     }
 
@@ -107,4 +114,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Calendar.class);
         startActivity (i);
     }
+
+    public static ArrayList<String> getItems() {
+        return items;
+    }
+
 }

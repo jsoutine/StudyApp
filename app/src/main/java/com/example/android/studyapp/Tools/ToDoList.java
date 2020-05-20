@@ -20,6 +20,8 @@ import com.example.android.studyapp.R;
 import java.io.File;
 import java.util.ArrayList;
 
+import static com.example.android.studyapp.MainActivity.items;
+
 public class ToDoList extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     private EditText itemET;
@@ -27,7 +29,7 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
     private Button btn2;
     private ListView itemsList;
 
-    private ArrayList<String> items;
+    //public static ArrayList<String> items;
     private ArrayAdapter<String> adapter;
 
     @Override
@@ -40,8 +42,8 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
         btn2 = findViewById(R.id.add_calend_btn);
         itemsList = findViewById(R.id.items_list);
 
-        items = FileHelper.readData(this);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        //items = FileHelper.readData(this);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, MainActivity.getItems());
         itemsList.setAdapter(adapter);
 
         btn.setOnClickListener(this);
@@ -81,4 +83,9 @@ public class ToDoList extends AppCompatActivity implements View.OnClickListener,
         FileHelper.writeData(items, this);
         Toast.makeText(this, "Task deleted", Toast.LENGTH_SHORT).show();
     }
+
+    public static ArrayList<String> getItems() {
+        return items;
+    }
+
 }

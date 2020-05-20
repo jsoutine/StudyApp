@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Events.ViewCourses">
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:gravity="center"
         android:text="Delete courses by long pressing on desired course"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,6 +29,8 @@
         android:layout_marginTop="128dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="128dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +50,16 @@
 
     <Button
         android:id="@+id/addCourseButton"
-        style="@style/greenButton"
+        style="@style/flatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableStart="@drawable/outline_add_box_white_36dp"
         android:onClick="addCourseClick"
         android:text="ADD COURSE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventListView" />
+        app:layout_constraintTop_toBottomOf="@+id/eventListView"
+        app:layout_constraintVertical_bias="0.175" />
 </androidx.constraintlayout.widget.ConstraintLayout>

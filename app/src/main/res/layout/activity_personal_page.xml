@@ -58,7 +58,9 @@
             <ListView
                 android:id="@+id/eventsList"
                 android:layout_width="match_parent"
-                android:layout_height="260dp">
+                android:layout_height="260dp"
+                android:background="#FFFFFF"
+                android:elevation="4dp">
 
             </ListView>
 
@@ -73,7 +75,9 @@
             <ListView
                 android:id="@+id/taskList"
                 android:layout_width="match_parent"
-                android:layout_height="247dp" />
+                android:layout_height="247dp"
+                android:background="#FFFFFF"
+                android:elevation="4dp" />
 
             <TextView
                 android:id="@+id/textMyStats"
@@ -88,7 +92,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:background="#FFFFFF"
-                android:elevation="4dp"
                 android:orientation="horizontal">
 
                 <TextView
