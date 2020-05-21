@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DADADA"
     tools:context=".Tools.ToolsMenu">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="412dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_launcher_background"
+        android:background="@color/colorPrimaryDark"
         android:elevation="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +29,11 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

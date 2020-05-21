@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#DADADA"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Tools.ToDoList">
@@ -32,14 +32,34 @@
             android:layout_marginBottom="2dp"
             android:hint="Write task here, hold to delete" />
 
-        <Button
-            android:id="@+id/add_btn"
-            style="@style/flatButton"
-            android:layout_width="94dp"
-            android:layout_height="43dp"
-            android:background="@drawable/button_custom"
-            android:drawableStart="@drawable/outline_add_box_white_36dp"
-            android:text="Add" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_btn"
+                style="@style/flatButton"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_custom"
+                android:drawableStart="@drawable/outline_add_box_white_36dp"
+                android:text="Add" />
+
+            <Button
+                android:id="@+id/add_calend_btn"
+                style="@style/flatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_custom"
+                android:drawableStart="@drawable/outline_today_white_18dp"
+                android:gravity="center"
+                android:text="Add to calendar" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <ListView
@@ -48,19 +68,10 @@
         android:layout_height="332dp"
         android:layout_margin="16dp"
         android:layout_marginBottom="12dp"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        android:elevation="4dp">
 
     </ListView>
-
-    <Button
-        android:id="@+id/add_calend_btn"
-        style="@style/flatButton"
-        android:layout_width="161dp"
-        android:layout_height="69dp"
-        android:background="@drawable/button_custom"
-        android:drawableTop="@drawable/outline_today_white_18dp"
-        android:gravity="center"
-        android:text="Add to calendar" />
 
 
 </LinearLayout>

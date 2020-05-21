@@ -21,8 +21,6 @@
     <style name="flatButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/buttonflat</item>
         <item name="android:textColor">@color/colorOnPrimary</item>
-        <item name="android:shadowColor">#8C8C8C</item>
-        <item name="android:shadowDx">8.0</item>
         <item name="android:shadowDy">8.0</item>
         <item name="android:elevation">10dp</item>
         <item name="android:paddingLeft">12dp</item>

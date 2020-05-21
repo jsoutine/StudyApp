@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorOnPrimary"
-    android:clipToPadding="true"
+    android:background="#DADADA"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="225dp"
-        android:background="@drawable/ic_launcher_background"
-        android:elevation="2dp"
+        android:background="@color/colorPrimaryDark"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,13 +32,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        android:alwaysDrawnWithCache="false"
-        android:background="#FFFFFF"
-        android:clipToPadding="false"
+        android:background="@color/colorOnPrimary"
+        android:elevation="8dp"
+        android:fadingEdge="horizontal|vertical"
         android:orientation="vertical"
+        android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -44,9 +47,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:baselineAligned="false"
+            android:layout_height="122dp"
+            android:clipChildren="false"
             android:clipToPadding="false"
             android:gravity="center|center_horizontal"
             android:orientation="horizontal">
@@ -59,20 +61,19 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_custom"
                 android:drawableTop="@drawable/outline_face_white_36dp"
-                android:elevation="4dp"
+                android:elevation="8dp"
                 android:onClick="personalClick"
-                android:outlineProvider="none"
                 android:text="@string/my_page" />
 
             <Button
                 android:id="@+id/eventsButton"
                 style="@style/flatButton"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/button_custom"
                 android:drawableTop="@drawable/outline_book_white_36dp"
-                android:elevation="2dp"
+                android:elevation="4dp"
                 android:onClick="eventClick"
                 android:text="COURSES" />
         </LinearLayout>
@@ -81,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
+            android:clipChildren="true"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -88,7 +90,7 @@
                 android:id="@+id/buttonCalendar"
                 style="@style/flatButton"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/button_custom"
                 android:drawableTop="@drawable/outline_today_white_36dp"
@@ -99,7 +101,7 @@
                 android:id="@+id/toolsButton2"
                 style="@style/flatButton"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/button_custom"
                 android:drawableTop="@drawable/outline_fitness_center_white_36dp"
@@ -109,7 +111,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="124dp"
             android:layout_marginTop="16dp"
             android:gravity="center|center_horizontal"
             android:orientation="horizontal">

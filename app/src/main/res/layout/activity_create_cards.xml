@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#DADADA"
     tools:context=".Tools.MemoryCards.CreateDeck">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="225dp"
-        android:background="@drawable/ic_launcher_background"
+        android:background="@color/colorPrimaryDark"
         android:elevation="2dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,9 +34,10 @@
         android:text="@string/deckCreator"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.388"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.388" />
 
     <LinearLayout
         android:id="@+id/linearLayout7"
